@@ -16,6 +16,8 @@ require.config({
         customtable: common + "CustomTable",
         table: layui + "table",
         laypage: layui + "laypage", 
+        common: common + "common",
+        popups: common + "popups",
 
     },
     //指明依赖关系，因为是异步的，如果一个文件的加载有前置条件，这里要加上

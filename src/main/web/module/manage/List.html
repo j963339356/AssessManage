@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <link rel="stylesheet" href="/common/js/lib/layui/css/layui.css" media="all">
-    <!-- <link rel="stylesheet" href="/common/css/common.css"> -->
+    <link rel="stylesheet" href="/common/css/common.css">
 </head>
 
 <body>
@@ -80,13 +80,13 @@
             <div class="layui-card">
                 <div class="layui-card-header">一个模块</div>
                 <div class="layui-card-body">
-                    <div class="search-from">
+                    <form class="search-form">
                         <div class="layui-row">
                             <div class="layui-col-md3">
                                 <div class="layui-form-item">
                                     <label class="layui-form-label right">查询条件</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="title" autocomplete="off" class="layui-input">
+                                        <input type="text" name="tiaojian1" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
                             </div>
@@ -94,23 +94,17 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">查询条件</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="title" autocomplete="off" class="layui-input">
+                                        <input type="text" name="tiaojian2" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="layui-col-md2 layui-col-md-offset3">
-                                <button id="query" class="layui-btn layui-btn-sm"><i
-                                        class="layui-icon">&#xe615;</i>查询</button>
-                                <button id="reset" class="layui-btn layui-btn-sm"><i
-                                        class="layui-icon">&#xe669;</i>重置</button>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="layui-row">
                             <div class="layui-col-md3">
                                 <div class="layui-form-item">
                                     <label class="layui-form-label right">查询条件</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="title" autocomplete="off" class="layui-input">
+                                        <input type="text" name="tiaojian3" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
                             </div>
@@ -118,26 +112,32 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label">查询条件</label>
                                     <div class="layui-input-block">
-                                        <input type="text" name="title" autocomplete="off" class="layui-input">
+                                        <input type="text" name="tiaojian4" autocomplete="off" class="layui-input">
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                    
+                    </form>
+                    <div class="list-search">
+                        <button id="query" class="layui-btn layui-btn-sm"><i
+                                class="layui-icon">&#xe615;</i>查询</button>
+                        <button id="reset" class="layui-btn layui-btn-sm"><i
+                                class="layui-icon">&#xe669;</i>重置</button>
                     </div>
                     <hr>
                     <div class="layui-row">
-                        <div id="tool" class="layui-col-md11 layui-col-md-offset1">
+                        <div id="tool" class="layui-col-md11">
                             <a id="add" class="layui-btn layui-btn-sm" style="background:#01aaed"><i
                                     class="layui-icon">&#xe654;</i>新增</a>
-                            <a id="alter" class="layui-btn layui-btn-sm" style="background:#5fb878"><i
+                            <a id="edit" class="layui-btn layui-btn-sm" style="background:#5fb878"><i
                                     class="layui-icon">&#xe6b2;</i>编辑</a>
-                            <a id="delect" class="layui-btn layui-btn-sm layui-btn-warm"><i
+                            <a id="delete" class="layui-btn layui-btn-sm layui-btn-warm"><i
                                     class="layui-icon">&#x1006;</i>删除</a>
-                            <a id="release" class="layui-btn layui-btn-sm layui-bg-green"><i
+                            <a id="view" class="layui-btn layui-btn-sm layui-bg-green"><i
                                     class="layui-icon">&#xe615;</i>查看</a>
                         </div>
                     </div>
-                    <table id="demo" lay-filter="user"></table>
+                    <table id="table" lay-filter="user"></table>
                     <div id="page"></div>                    
                 </div>
             </div>

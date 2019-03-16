@@ -30,3 +30,23 @@
     background-color: #FFF;
 }
 
+/* 列表的查询和重置按钮位置 */
+.list-search{
+    text-align: right;
+    top: 15px;
+    right: 50px;
+    position: absolute;
+}
+
+/* 添加修改页面的表单样式 */
+.form-group{
+    margin: 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.form-group>div{
+    padding: 15px;
+    margin: 0 !important;
+    border-left: 1px solid #efefef;
+}
+
