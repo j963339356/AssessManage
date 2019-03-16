@@ -1,0 +1,136 @@
+/*清楚默认样式*/
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, p, span, dl, dt, dd, a, img, button, article, aside, footer, header, hgroup, menu, nav, section, figure { margin: 0; padding: 0; border:0; list-style: none; box-sizing: border-box; }
+
+/* 网页背景 */
+body{
+    min-width: 1163px;
+    background-color:#c2c2c2;
+}
+
+/*字体颜色*/
+*{color:#7c8892}
+
+.layui-icon{color:#fff}
+
+/*主面板大小*/
+.layui-card{
+    margin: 20px;
+}
+
+/* 块状元素居中 */
+.block-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 文本居中 */
+.text-center{
+    text-align: center;
+}
+
+/********************* 顶部部分 **********************/
+/* 顶端标题状态样式 */
+.layui-card-body .top{
+    padding: 10px 10% 10px 10%;
+}
+
+#query{
+    float: right;
+    margin-right: 10px;
+}
+#reset{
+    float: right;
+}
+
+/*收起折叠按钮*/
+.flip
+{
+	padding: 0 40px 5px;
+    text-align:center;
+    background-color: #fff;
+    border:solid 1px #ddd;
+    border-top-color:#fff;
+    position: relative;
+    top: -1px;
+}
+
+/* 收起折叠区域 */
+#panel
+{
+    height: 60px;
+    border-top-style: solid;
+    border-top-color: #ddd;
+    border-width: 1px;
+    display:none;
+    margin-top: 10px;
+    padding: 20px 10% 10px 10%;
+}
+
+/* 文本框样式 */
+input{
+    height: 30px;
+    border: solid 1px #ddd;
+    margin-right: 150px;
+}
+
+/* 选择框-状态样式 */
+.select-state{
+    border: 1px solid #ddd;
+    height: 30px;
+    width: 153px;
+    margin-right: 136px;
+}
+
+/********************* 详情部分 ********************/
+/* 将上边框设置颜色 */
+.details{
+    height: 700px;
+    background: #fff;
+    border-top-style: solid;
+    border-top-color: #ddd;
+    border-width: 1px;
+}
+
+.details ul{
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.details ul li{
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/* 底端分页部分 */
+#paging-left{
+    float: left;
+    margin-left: 10px;
+    border: 1px solid #ddd;
+    height: 30px;
+    width: 70px;
+    margin-right: 136px;
+    margin-top: 10px;
+}
+
+#jilu{
+    float: left;
+    margin-top: 15px;
+}
+
+#paging-right{
+    float:right;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+
+
+
+
+/* layui */
+.layui-card{margin-bottom:15px;border-radius:2px;background-color:#fff;box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}
+.layui-card-header{position:relative;height:42px;line-height:42px;padding:0 15px;border-bottom:1px solid #ddd;color:#333;border-radius:2px 2px 0 0;font-size:14px}
+.layui-btn{
+    line-height: 30px;
+    height: 30px;
+}

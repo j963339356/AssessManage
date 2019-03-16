@@ -1,0 +1,32 @@
+/************   扩展查询(废弃)    ***********/
+
+
+/*额外的查询区域*/
+.search-extends-border{
+    display: none;  /*显示是block*/
+    margin-bottom: 12px;
+    border-top: 1px solid #ddd;
+}
+
+/*更多*/
+.search-more{
+    text-align: center;
+    position: relative;
+}
+
+.search-more span{
+    width: 120px;
+    height: 24px;
+    line-height: 17px;
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-top: 1px solid #FFF;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+    background-color: #FFF;
+}
+
