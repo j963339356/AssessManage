@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjc.assess.dao.AssessTargetManageMapper" >
+  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessTargetManage" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="assessId" property="assessId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="meansure" property="meansure" jdbcType="VARCHAR" />
+    <result column="p" property="p" jdbcType="VARCHAR" />
+    <result column="targetExplain" property="targetExplain" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="valueType" property="valueType" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="dimension" property="dimension" jdbcType="VARCHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="CHAR" />
+    <result column="ogrName" property="ogrName" jdbcType="CHAR" />
+    <result column="isStart" property="isStart" jdbcType="BIT" />
+    <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
+    <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
+    <result column="sysCreateTime" property="sysCreateTime" jdbcType="TIMESTAMP" />
+    <result column="sysUpdateName" property="sysUpdateName" jdbcType="VARCHAR" />
+    <result column="sysUpdateCode" property="sysUpdateCode" jdbcType="VARCHAR" />
+    <result column="sysUpdateTime" property="sysUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="sysStatus" property="sysStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List_beiyong" >
+    id, assessId, name, meansure, p, targetExplain, level, valueType, remark, dimension, 
+    orgCode, ogrName, isStart, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, 
+    sysUpdateCode, sysUpdateTime, sysStatus
+  </sql>
+  <sql id="Base_Column_List" >
+    name, id, assessId,  meansure, p, targetExplain, level, valueType, remark, dimension,
+    orgCode, ogrName, isStart, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName,
+    sysUpdateCode, sysUpdateTime, sysStatus
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.AssessTargetManageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from assesstargetmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from assesstargetmanage
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from assesstargetmanage
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessTargetManageExample" >
+    delete from assesstargetmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wjc.assess.entity.AssessTargetManage" >
+    insert into assesstargetmanage (id, assessId, name, 
+      meansure, p, targetExplain, 
+      level, valueType, remark, 
+      dimension, orgCode, ogrName, 
+      isStart, sysCreateName, sysCreateCode, 
+      sysCreateTime, sysUpdateName, sysUpdateCode, 
+      sysUpdateTime, sysStatus)
+    values (#{id,jdbcType=VARCHAR}, #{assessId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{meansure,jdbcType=VARCHAR}, #{p,jdbcType=VARCHAR}, #{targetExplain,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER}, #{valueType,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{dimension,jdbcType=VARCHAR}, #{orgCode,jdbcType=CHAR}, #{ogrName,jdbcType=CHAR}, 
+      #{isStart,jdbcType=BIT}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
+      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
+      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessTargetManage" >
+    insert into assesstargetmanage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="assessId != null" >
+        assessId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="meansure != null" >
+        meansure,
+      </if>
+      <if test="p != null" >
+        p,
+      </if>
+      <if test="targetExplain != null" >
+        targetExplain,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="valueType != null" >
+        valueType,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="dimension != null" >
+        dimension,
+      </if>
+      <if test="orgCode != null" >
+        orgCode,
+      </if>
+      <if test="ogrName != null" >
+        ogrName,
+      </if>
+      <if test="isStart != null" >
+        isStart,
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName,
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode,
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime,
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName,
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode,
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime,
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="assessId != null" >
+        #{assessId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="meansure != null" >
+        #{meansure,jdbcType=VARCHAR},
+      </if>
+      <if test="p != null" >
+        #{p,jdbcType=VARCHAR},
+      </if>
+      <if test="targetExplain != null" >
+        #{targetExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="valueType != null" >
+        #{valueType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null" >
+        #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=CHAR},
+      </if>
+      <if test="ogrName != null" >
+        #{ogrName,jdbcType=CHAR},
+      </if>
+      <if test="isStart != null" >
+        #{isStart,jdbcType=BIT},
+      </if>
+      <if test="sysCreateName != null" >
+        #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        #{sysStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessTargetManageExample" resultType="java.lang.Integer" >
+    select count(*) from assesstargetmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update assesstargetmanage
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assessId != null" >
+        assessId = #{record.assessId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.meansure != null" >
+        meansure = #{record.meansure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.p != null" >
+        p = #{record.p,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetExplain != null" >
+        targetExplain = #{record.targetExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.valueType != null" >
+        valueType = #{record.valueType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dimension != null" >
+        dimension = #{record.dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgCode != null" >
+        orgCode = #{record.orgCode,jdbcType=CHAR},
+      </if>
+      <if test="record.ogrName != null" >
+        ogrName = #{record.ogrName,jdbcType=CHAR},
+      </if>
+      <if test="record.isStart != null" >
+        isStart = #{record.isStart,jdbcType=BIT},
+      </if>
+      <if test="record.sysCreateName != null" >
+        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateCode != null" >
+        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateTime != null" >
+        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUpdateName != null" >
+        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateCode != null" >
+        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateTime != null" >
+        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysStatus != null" >
+        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update assesstargetmanage
+    set id = #{record.id,jdbcType=VARCHAR},
+      assessId = #{record.assessId,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      meansure = #{record.meansure,jdbcType=VARCHAR},
+      p = #{record.p,jdbcType=VARCHAR},
+      targetExplain = #{record.targetExplain,jdbcType=VARCHAR},
+      level = #{record.level,jdbcType=INTEGER},
+      valueType = #{record.valueType,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      dimension = #{record.dimension,jdbcType=VARCHAR},
+      orgCode = #{record.orgCode,jdbcType=CHAR},
+      ogrName = #{record.ogrName,jdbcType=CHAR},
+      isStart = #{record.isStart,jdbcType=BIT},
+      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessTargetManage" >
+    update assesstargetmanage
+    <set >
+      <if test="assessId != null" >
+        assessId = #{assessId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="meansure != null" >
+        meansure = #{meansure,jdbcType=VARCHAR},
+      </if>
+      <if test="p != null" >
+        p = #{p,jdbcType=VARCHAR},
+      </if>
+      <if test="targetExplain != null" >
+        targetExplain = #{targetExplain,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="valueType != null" >
+        valueType = #{valueType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dimension != null" >
+        dimension = #{dimension,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        orgCode = #{orgCode,jdbcType=CHAR},
+      </if>
+      <if test="ogrName != null" >
+        ogrName = #{ogrName,jdbcType=CHAR},
+      </if>
+      <if test="isStart != null" >
+        isStart = #{isStart,jdbcType=BIT},
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus = #{sysStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessTargetManage" >
+    update assesstargetmanage
+    set assessId = #{assessId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      meansure = #{meansure,jdbcType=VARCHAR},
+      p = #{p,jdbcType=VARCHAR},
+      targetExplain = #{targetExplain,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      valueType = #{valueType,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      dimension = #{dimension,jdbcType=VARCHAR},
+      orgCode = #{orgCode,jdbcType=CHAR},
+      ogrName = #{ogrName,jdbcType=CHAR},
+      isStart = #{isStart,jdbcType=BIT},
+      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{sysStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

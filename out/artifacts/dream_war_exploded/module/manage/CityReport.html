@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/common/js/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/common/css/common.css">
+
+    <title>考核管理</title>
+</head>
+
+<body>
+    <div class="layui-tab layui-tab-brief" lay-filter="tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">基础信息</li>
+            <!-- <li>维度设置</li> -->
+            <!-- <li>权限分配</li> -->
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <blockquote class="layui-elem-quote">
+                    基本信息
+                </blockquote>
+                <div class="layui-form border userInfo">
+                    <div class="layui-form-item form-group">
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">辖区市:</label>
+                            <div class="layui-input-block">
+                                <label name="city" class="label layui-text">-</label>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">辖区县:</label>
+                            <div class="layui-input-block">
+                                <label name="county" class="label layui-text">-</label>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">单位名称:</label>
+                            <div class="layui-input-block">
+                                <label name="orgName" class="label layui-text">-</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item form-group">
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">填表人:</label>
+                            <div class="layui-input-block">
+                                <label name="name" class="label layui-text">-</label>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">考核日期:</label>
+                            <div class="layui-input-block">
+                                <label name="date" class="label layui-text">-</label>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">考核年度:</label>
+                            <div class="layui-input-block">
+                                <label name="year" class="label layui-text">2018</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+                    考核信息
+                </blockquote>                  
+                <div class="layui-row">
+                    <div id="tool" class="layui-col-md11">
+                        <a id="cityReport" class="layui-btn layui-btn-sm" style="background:#01aaed" data-code="2"><i
+                                class="layui-icon" >&#xe654;</i>上报县级报告</a>
+                        <a id="delete" class="layui-btn layui-btn-sm layui-btn-warm" data-code="12"><i
+                            class="layui-icon">&#x1006;</i>移除</a>
+                        <a id="view" class="layui-btn layui-btn-sm layui-bg-green"><i
+                                class="layui-icon">&#xe615;</i>查看</a>
+                    </div>
+                </div>
+                <table id="table1" class="layui-table" lay-even lay-filter="table1"></table>
+            </div>
+            <div class="layui-tab-item layui-show"></div>
+        </div>
+    </div>
+    <script data-main="js/CityReport.js" src="/common/js/lib/require.js"></script>
+</body>
+
+</html>

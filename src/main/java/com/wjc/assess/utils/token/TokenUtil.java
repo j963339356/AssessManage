@@ -17,7 +17,7 @@ token工具类，生成token，解析token
 @Component
 public class TokenUtil {
     //过期时间 默认15分钟
-    public long EXPIRE_TIME = 15;
+    public long EXPIRE_TIME = 30;
     @Autowired
     public JedisUtil redis;
     /*
@@ -55,7 +55,7 @@ public class TokenUtil {
     public String checkToken(HttpServletRequest httpServletRequest){
         String token = httpServletRequest.getHeader("token");
         if(token == null || token.trim().equals("")){
-            throw new CustomException(ExceptionEnum.BUSINESS.getCode(),"账号未登录");
+            throw new CustomException(ExceptionEnum.LOGIN.getCode(),"账号未登录");
         }
         //重置token有效期
         redis.expire(token);

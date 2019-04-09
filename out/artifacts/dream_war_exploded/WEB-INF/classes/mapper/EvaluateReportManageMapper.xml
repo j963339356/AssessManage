@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjc.assess.dao.EvaluateReportManageMapper" >
+  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.EvaluateReportManage" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="reportAddr" property="reportAddr" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="VARCHAR" />
+    <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
+    <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
+    <result column="sysCreateTime" property="sysCreateTime" jdbcType="TIMESTAMP" />
+    <result column="sysUpdateName" property="sysUpdateName" jdbcType="VARCHAR" />
+    <result column="sysUpdateCode" property="sysUpdateCode" jdbcType="VARCHAR" />
+    <result column="sysUpdateTime" property="sysUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="sysStatus" property="sysStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.wjc.assess.entity.EvaluateReportManage" extends="BaseResultMap" >
+    <result column="reportEvaluate" property="reportEvaluate" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, year, reportAddr, orgName, orgCode, sysCreateName, sysCreateCode, sysCreateTime, 
+    sysUpdateName, sysUpdateCode, sysUpdateTime, sysStatus
+  </sql>
+  <sql id="Blob_Column_List" >
+    reportEvaluate
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.wjc.assess.entity.EvaluateReportManageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from evaluatereportmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.EvaluateReportManageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from evaluatereportmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from evaluatereportmanage
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from evaluatereportmanage
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.EvaluateReportManageExample" >
+    delete from evaluatereportmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wjc.assess.entity.EvaluateReportManage" >
+    insert into evaluatereportmanage (id, year, reportAddr, 
+      orgName, orgCode, sysCreateName, 
+      sysCreateCode, sysCreateTime, sysUpdateName, 
+      sysUpdateCode, sysUpdateTime, sysStatus, 
+      reportEvaluate)
+    values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{reportAddr,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{sysCreateName,jdbcType=VARCHAR}, 
+      #{sysCreateCode,jdbcType=VARCHAR}, #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, 
+      #{sysUpdateCode,jdbcType=VARCHAR}, #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER}, 
+      #{reportEvaluate,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjc.assess.entity.EvaluateReportManage" >
+    insert into evaluatereportmanage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="reportAddr != null" >
+        reportAddr,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgCode != null" >
+        orgCode,
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName,
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode,
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime,
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName,
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode,
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime,
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus,
+      </if>
+      <if test="reportEvaluate != null" >
+        reportEvaluate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="reportAddr != null" >
+        #{reportAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateName != null" >
+        #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        #{sysStatus,jdbcType=INTEGER},
+      </if>
+      <if test="reportEvaluate != null" >
+        #{reportEvaluate,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wjc.assess.entity.EvaluateReportManageExample" resultType="java.lang.Integer" >
+    select count(*) from evaluatereportmanage
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update evaluatereportmanage
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=INTEGER},
+      </if>
+      <if test="record.reportAddr != null" >
+        reportAddr = #{record.reportAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgName != null" >
+        orgName = #{record.orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgCode != null" >
+        orgCode = #{record.orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateName != null" >
+        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateCode != null" >
+        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateTime != null" >
+        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUpdateName != null" >
+        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateCode != null" >
+        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateTime != null" >
+        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysStatus != null" >
+        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.reportEvaluate != null" >
+        reportEvaluate = #{record.reportEvaluate,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update evaluatereportmanage
+    set id = #{record.id,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=INTEGER},
+      reportAddr = #{record.reportAddr,jdbcType=VARCHAR},
+      orgName = #{record.orgName,jdbcType=VARCHAR},
+      orgCode = #{record.orgCode,jdbcType=VARCHAR},
+      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{record.sysStatus,jdbcType=INTEGER},
+      reportEvaluate = #{record.reportEvaluate,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update evaluatereportmanage
+    set id = #{record.id,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=INTEGER},
+      reportAddr = #{record.reportAddr,jdbcType=VARCHAR},
+      orgName = #{record.orgName,jdbcType=VARCHAR},
+      orgCode = #{record.orgCode,jdbcType=VARCHAR},
+      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.EvaluateReportManage" >
+    update evaluatereportmanage
+    <set >
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="reportAddr != null" >
+        reportAddr = #{reportAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        orgCode = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus = #{sysStatus,jdbcType=INTEGER},
+      </if>
+      <if test="reportEvaluate != null" >
+        reportEvaluate = #{reportEvaluate,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wjc.assess.entity.EvaluateReportManage" >
+    update evaluatereportmanage
+    set year = #{year,jdbcType=INTEGER},
+      reportAddr = #{reportAddr,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgCode = #{orgCode,jdbcType=VARCHAR},
+      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{sysStatus,jdbcType=INTEGER},
+      reportEvaluate = #{reportEvaluate,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.EvaluateReportManage" >
+    update evaluatereportmanage
+    set year = #{year,jdbcType=INTEGER},
+      reportAddr = #{reportAddr,jdbcType=VARCHAR},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgCode = #{orgCode,jdbcType=VARCHAR},
+      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{sysStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

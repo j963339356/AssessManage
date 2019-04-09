@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>城乡道路客运一体化考核管理系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="/common/js/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/common/css/common.css">
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">城乡道路客运一体化考核管理系统</div>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
+                            class="layui-nav-img">
+                        活在梦里
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/module/targetmanage/List.html">考核指标管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/module/manage/List.html">考核管理</a>                        
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">考核信息公示查询</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/module/infopublicity/ProvinceList.html">省级公示信息查询</a></dd>
+                            <dd data-code="23"><a href="/module/infopublicity/CityList.html">市级公示信息查询</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item" data-code="1"><a href="/module/reportmanage/List.html">考核评价报告管理</a></li>
+                    <li class="layui-nav-item" data-code="12">
+                        <a href="javascript:;">考核统计分析</a>
+                        <dl class="layui-nav-child">
+                            <dd data-code="1"><a href="/module/Analysis/Level.html">评价等级统计</a></dd>
+                            <dd data-code="1"><a href="/module/Analysis/Score.html">评价分值统计</a></dd>
+                            <dd data-code="12"><a href="/module/Analysis/Whole.html">总体情况</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">工作事项</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/module/work/waittask.html">待处理件</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item" data-code="0">
+                        <a href="/module/user/List.html">用户管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body" style="padding: 20px; background-color: #F2F2F2;">
+            <div class="layui-card">
+                <div class="layui-card-header">市级信息公示查询</div>
+                <div class="layui-card-body">
+                    <form class="search-form layui-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md3">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label right">考核年度</label>
+                                    <div class="layui-input-block">
+                                        <select name="year" lay-filter="" disabled>
+                                            <option value="2018">2018</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md3 layui-col-md-offset1">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">辖区市</label>
+                                    <div class="layui-input-block">
+                                        <select id="city" name="city" lay-filter="city">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md3">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label right">辖区县</label>
+                                    <div class="layui-input-block">
+                                        <select id="county" name="county" lay-filter="county">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-md3 layui-col-md-offset1">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">单位名称</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="ogrName" autocomplete="off" placeholder=""
+                                            class="layui-input" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="list-search">
+                        <button id="query" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>查询</button>
+                        <button id="reset" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe669;</i>重置</button>
+                    </div>
+                    <hr>
+                    <div class="layui-row">
+                        <div id="tool" class="layui-col-md11">
+                            <a id="view" class="layui-btn layui-btn-sm layui-bg-green"><i
+                                    class="layui-icon">&#xe615;</i>查看</a>
+                        </div>
+                    </div>
+                    <table id="table" lay-filter="user"></table>
+                    <div id="page"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+
+        </div>
+    </div>
+    <script data-main="js/CityList.js" src="/common/js/lib/require.js"></script>
+</body>
+
+</html>

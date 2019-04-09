@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class JedisUtil {
 
     //默认有效时间15分钟
-    private long timeout = 15;
+    private long timeout = 120;
     @Autowired
     private RedisTemplate redisTemplate;
 

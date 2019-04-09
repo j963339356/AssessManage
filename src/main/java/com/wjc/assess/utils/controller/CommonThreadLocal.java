@@ -1,5 +1,6 @@
 package com.wjc.assess.utils.controller;
 
+import com.wjc.assess.entity.User;
 import com.wjc.assess.utils.controller.dto.CommonResponse;
 
 /*
@@ -10,7 +11,7 @@ import com.wjc.assess.utils.controller.dto.CommonResponse;
  * 可以在请求时把数据放到这个线程里，响应完成后释放
  */
 public class CommonThreadLocal {
-    private static ThreadLocal<CommonResponse> local = new ThreadLocal();
+    private static ThreadLocal<User> local = new ThreadLocal();
 
     private CommonThreadLocal(){}
 
@@ -20,12 +21,12 @@ public class CommonThreadLocal {
     }
 
     //设置数据
-    public static void set(CommonResponse response){
-        local.set(response);
+    public static void set(User user){
+        local.set(user);
     }
 
     //获取数据
-    public static CommonResponse getCommonResponse(){
+    public static User getCommonResponse(){
         return local.get();
     }
 }

@@ -30,7 +30,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         httpServletResponse.setContentType("text/html;charset=utf-8");
 
         //如果是登录或注册，就放行
-        if(httpServletRequest.getRequestURI().equals("/api/Login") || httpServletRequest.getRequestURI().equals("/api/Regist")){
+        if(httpServletRequest.getRequestURI().contains("/api/Login")
+                || httpServletRequest.getRequestURI().contains("/api/File")
+                || httpServletRequest.getRequestURI().contains("/api/ReportManage/deleteFile")){
             return true;
         }
         //否则验证token
@@ -38,9 +40,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         //如果存在token
         if(!redis.hasKey(token)){
-            throw new CustomException(ExceptionEnum.BUSINESS.getCode(),"用户信息已过期，请重新登录");
+            throw new CustomException(ExceptionEnum.LOGIN);
         }
-//        httpServletRequest.setAttribute(token,redis.get(token));
+        httpServletRequest.setAttribute("user",redis.get(token));
         return true;
     }
 

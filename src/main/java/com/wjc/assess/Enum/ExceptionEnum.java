@@ -6,6 +6,8 @@ public enum ExceptionEnum {
     BUSINESS(1,"业务处理出错"), //业务异常，在处理业务时出错
     PARAMERTER(2,"参数错误"),   //参数错误
     COMPONENT(3,"工具类错误"),   //工具类错误
+    LOGIN(4,"用户信息已过期"),     //登录错误
+    VERIFY(5,"验证码错误"),      //验证码错误
     SUCCESS(0,"成功"),    //成功
     ERROR(-1,"未知错误");   //其他异常
 

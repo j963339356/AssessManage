@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/common/js/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/common/css/common.css">
+
+    <title>考核管理</title>
+</head>
+
+<body>
+    <div class="layui-tab layui-tab-brief" lay-filter="tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">基础信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <blockquote class="layui-elem-quote">
+                    基本信息
+                </blockquote>
+                <form id="form1" class="layui-form border">
+                    <div class="layui-form-item form-group ">
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">考核年度:</label>
+                            <div class="layui-input-block">
+                                <select name="year" lay-filter="level">
+                                    <option value="2018">2018</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-col-md8">
+                            <label class="layui-form-label" style="width: 100px;">评价报告附件:</label>
+                            <div class="layui-input-block">
+                                <a id="upload" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe67c;</i>上传文件</a>
+                                <!-- <label name="county" class="label layui-text"></label>-->
+                                <div id="upload2" class="padding" hidden>
+                                    <input type="text" name="reportAddr" hidden>
+                                    <a class="layui-btn layui-btn-xs view">查看</a>
+                                    <a class="layui-btn layui-btn-xs layui-btn-danger delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item form-group">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label" style="height: 196px;">评价报告自定义内容:</label>
+                            <div class="layui-input-block">
+                                <textarea rows="10" name="reportEvaluate" placeholder="请输入内容"
+                                    class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button id="save" class="layui-btn layui-btn-sm save" lay-submit lay-filter="save">保存</button>
+
+            </div>
+            <div class="layui-tab-item layui-show"></div>
+        </div>
+    </div>
+    <script data-main="js/Add.js" src="/common/js/lib/require.js"></script>
+</body>
+
+</html>

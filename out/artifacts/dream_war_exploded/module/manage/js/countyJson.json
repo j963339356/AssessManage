@@ -1,0 +1,728 @@
+[
+	{
+		"ID": 1001,
+		"NAME": "荔湾区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1002,
+		"NAME": "越秀区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1003,
+		"NAME": "海珠区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1004,
+		"NAME": "天河区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1005,
+		"NAME": "白云区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1006,
+		"NAME": "黄浦区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1007,
+		"NAME": "番禺区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1008,
+		"NAME": "花都区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1009,
+		"NAME": "南沙区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1010,
+		"NAME": "增城区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1011,
+		"NAME": "从化区",
+		"PARENT_ID": "广州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1102,
+		"NAME": "武江区",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1103,
+		"NAME": "浈江区",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1104,
+		"NAME": "曲江区",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1105,
+		"NAME": "始兴县",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1106,
+		"NAME": "仁化县",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1107,
+		"NAME": "翁源县",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1108,
+		"NAME": "乳源瑶族自治县",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1109,
+		"NAME": "新丰县",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1110,
+		"NAME": "乐昌市",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1111,
+		"NAME": "南雄市",
+		"PARENT_ID": "韶关市",
+		"DEEP": 2
+	},	
+	{
+		"ID": 1202,
+		"NAME": "罗湖区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1203,
+		"NAME": "福田区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1204,
+		"NAME": "南山区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1205,
+		"NAME": "宝安区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1206,
+		"NAME": "龙岗区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1207,
+		"NAME": "盐田区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},	
+	{
+		"ID": 1214,
+		"NAME": "光明区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1215,
+		"NAME": "坪山区",
+		"PARENT_ID": "深圳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1303,
+		"NAME": "斗门区",
+		"PARENT_ID": "珠海市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1304,
+		"NAME": "金湾区",
+		"PARENT_ID": "珠海市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1402,
+		"NAME": "龙湖区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1403,
+		"NAME": "金平区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1404,
+		"NAME": "濠江区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1405,
+		"NAME": "潮阳区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1406,
+		"NAME": "潮南区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1407,
+		"NAME": "澄海区",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1408,
+		"NAME": "南澳县",
+		"PARENT_ID": "汕头市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1502,
+		"NAME": "禅城区",
+		"PARENT_ID": "佛山市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1503,
+		"NAME": "南海区",
+		"PARENT_ID": "佛山市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1504,
+		"NAME": "顺德区",
+		"PARENT_ID": "佛山市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1505,
+		"NAME": "三水区",
+		"PARENT_ID": "佛山市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1506,
+		"NAME": "高明区",
+		"PARENT_ID": "佛山市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1603,
+		"NAME": "蓬江区",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1604,
+		"NAME": "江海区",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1605,
+		"NAME": "新会区",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1606,
+		"NAME": "台山市",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1607,
+		"NAME": "开平市",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1608,
+		"NAME": "鹤山市",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1609,
+		"NAME": "恩平市",
+		"PARENT_ID": "江门市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1702,
+		"NAME": "赤坎区",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1703,
+		"NAME": "霞山区",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1704,
+		"NAME": "坡头区",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1706,
+		"NAME": "麻章区",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1713,
+		"NAME": "遂溪县",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1714,
+		"NAME": "徐闻县",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1717,
+		"NAME": "廉江市",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1718,
+		"NAME": "雷州市",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1719,
+		"NAME": "吴川市",
+		"PARENT_ID": "湛江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1802,
+		"NAME": "茂南区",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1803,
+		"NAME": "茂港区",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1804,
+		"NAME": "电白县",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1805,
+		"NAME": "高州市",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1806,
+		"NAME": "化州市",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1807,
+		"NAME": "信宜市",
+		"PARENT_ID": "茂名市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1902,
+		"NAME": "端州区",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1903,
+		"NAME": "鼎湖区",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1905,
+		"NAME": "广宁县",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1906,
+		"NAME": "怀集县",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1907,
+		"NAME": "封开县",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1908,
+		"NAME": "德庆县",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1909,
+		"NAME": "高要市",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 1910,
+		"NAME": "四会市",
+		"PARENT_ID": "肇庆市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2002,
+		"NAME": "惠城区",
+		"PARENT_ID": "惠州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2003,
+		"NAME": "惠阳区",
+		"PARENT_ID": "惠州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2007,
+		"NAME": "博罗县",
+		"PARENT_ID": "惠州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2008,
+		"NAME": "惠东县",
+		"PARENT_ID": "惠州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2009,
+		"NAME": "龙门县",
+		"PARENT_ID": "惠州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2102,
+		"NAME": "梅江区",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2103,
+		"NAME": "梅县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2104,
+		"NAME": "大埔县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2105,
+		"NAME": "丰顺县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2106,
+		"NAME": "五华县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2107,
+		"NAME": "平远县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2108,
+		"NAME": "蕉岭县",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2109,
+		"NAME": "兴宁市",
+		"PARENT_ID": "梅州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2202,
+		"NAME": "城区",
+		"PARENT_ID": "汕尾市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2203,
+		"NAME": "海丰县",
+		"PARENT_ID": "汕尾市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2204,
+		"NAME": "陆河县",
+		"PARENT_ID": "汕尾市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2205,
+		"NAME": "陆丰市",
+		"PARENT_ID": "汕尾市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2302,
+		"NAME": "源城区",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2303,
+		"NAME": "紫金县",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2304,
+		"NAME": "龙川县",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2305,
+		"NAME": "连平县",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2306,
+		"NAME": "和平县",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2307,
+		"NAME": "东源县",
+		"PARENT_ID": "河源市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2402,
+		"NAME": "江城区",
+		"PARENT_ID": "阳江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2407,
+		"NAME": "阳西县",
+		"PARENT_ID": "阳江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2408,
+		"NAME": "阳东县",
+		"PARENT_ID": "阳江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2409,
+		"NAME": "阳春市",
+		"PARENT_ID": "阳江市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2502,
+		"NAME": "清城区",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2503,
+		"NAME": "佛冈县",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2504,
+		"NAME": "阳山县",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2505,
+		"NAME": "连山壮族瑶族自治县",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2506,
+		"NAME": "连南瑶族自治县",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2507,
+		"NAME": "清新县",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2508,
+		"NAME": "英德市",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2509,
+		"NAME": "连州市",
+		"PARENT_ID": "清远市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2802,
+		"NAME": "湘桥区",
+		"PARENT_ID": "潮州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2803,
+		"NAME": "潮安县",
+		"PARENT_ID": "潮州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2804,
+		"NAME": "饶平县",
+		"PARENT_ID": "潮州市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2902,
+		"NAME": "榕城区",
+		"PARENT_ID": "揭阳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2906,
+		"NAME": "揭东县",
+		"PARENT_ID": "揭阳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2907,
+		"NAME": "揭西县",
+		"PARENT_ID": "揭阳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2908,
+		"NAME": "惠来县",
+		"PARENT_ID": "揭阳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 2909,
+		"NAME": "普宁市",
+		"PARENT_ID": "揭阳市",
+		"DEEP": 2
+	},
+	{
+		"ID": 3002,
+		"NAME": "云城区",
+		"PARENT_ID": "云浮市",
+		"DEEP": 2
+	},
+	{
+		"ID": 3003,
+		"NAME": "新兴县",
+		"PARENT_ID": "云浮市",
+		"DEEP": 2
+	},
+	{
+		"ID": 3004,
+		"NAME": "郁南县",
+		"PARENT_ID": "云浮市",
+		"DEEP": 2
+	},
+	{
+		"ID": 3005,
+		"NAME": "云安县",
+		"PARENT_ID": "云浮市",
+		"DEEP": 2
+	},
+	{
+		"ID": 3006,
+		"NAME": "罗定市",
+		"PARENT_ID": "云浮市",
+		"DEEP": 2
+	}
+]

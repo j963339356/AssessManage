@@ -3,13 +3,25 @@
 <mapper namespace="com.wjc.assess.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.wjc.assess.entity.User" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="accountid" property="accountid" jdbcType="VARCHAR" />
+    <result column="countId" property="countId" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="orgid" property="orgid" jdbcType="INTEGER" />
-    <result column="orgname" property="orgname" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="workid" property="workid" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="county" property="county" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="INTEGER" />
+    <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
+    <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
+    <result column="sysCreateTime" property="sysCreateTime" jdbcType="TIMESTAMP" />
+    <result column="sysUpdateName" property="sysUpdateName" jdbcType="VARCHAR" />
+    <result column="sysUpdateCode" property="sysUpdateCode" jdbcType="VARCHAR" />
+    <result column="sysUpdateTime" property="sysUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="sysStatus" property="sysStatus" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +82,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, accountid, name, age, orgid, orgname, phone, workid
+    id, countId, username, password, name, email, phone, city, county, province, sex, 
+    orgName, orgCode, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
+    sysUpdateTime, sysStatus
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.UserExample" >
     select
@@ -103,12 +117,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.wjc.assess.entity.User" >
-    insert into user (id, accountid, name, 
-      age, orgid, orgname, 
-      phone, workid)
-    values (#{id,jdbcType=VARCHAR}, #{accountid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER}, #{orgid,jdbcType=INTEGER}, #{orgname,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{workid,jdbcType=VARCHAR})
+    insert into user (id, countId, username, 
+      password, name, email, 
+      phone, city, county, 
+      province, sex, orgName, 
+      orgCode, sysCreateName, sysCreateCode, 
+      sysCreateTime, sysUpdateName, sysUpdateCode, 
+      sysUpdateTime, sysStatus)
+    values (#{id,jdbcType=VARCHAR}, #{countId,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{orgName,jdbcType=VARCHAR}, 
+      #{orgCode,jdbcType=INTEGER}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
+      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
+      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.wjc.assess.entity.User" >
     insert into user
@@ -116,52 +138,124 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="accountid != null" >
-        accountid,
+      <if test="countId != null" >
+        countId,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
       </if>
       <if test="name != null" >
         name,
       </if>
-      <if test="age != null" >
-        age,
-      </if>
-      <if test="orgid != null" >
-        orgid,
-      </if>
-      <if test="orgname != null" >
-        orgname,
+      <if test="email != null" >
+        email,
       </if>
       <if test="phone != null" >
         phone,
       </if>
-      <if test="workid != null" >
-        workid,
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="county != null" >
+        county,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="orgName != null" >
+        orgName,
+      </if>
+      <if test="orgCode != null" >
+        orgCode,
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName,
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode,
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime,
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName,
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode,
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime,
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="accountid != null" >
-        #{accountid,jdbcType=VARCHAR},
+      <if test="countId != null" >
+        #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
-        #{age,jdbcType=INTEGER},
-      </if>
-      <if test="orgid != null" >
-        #{orgid,jdbcType=INTEGER},
-      </if>
-      <if test="orgname != null" >
-        #{orgname,jdbcType=VARCHAR},
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="workid != null" >
-        #{workid,jdbcType=VARCHAR},
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=INTEGER},
+      </if>
+      <if test="sysCreateName != null" >
+        #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        #{sysStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -177,26 +271,62 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.accountid != null" >
-        accountid = #{record.accountid,jdbcType=VARCHAR},
+      <if test="record.countId != null" >
+        countId = #{record.countId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.age != null" >
-        age = #{record.age,jdbcType=INTEGER},
-      </if>
-      <if test="record.orgid != null" >
-        orgid = #{record.orgid,jdbcType=INTEGER},
-      </if>
-      <if test="record.orgname != null" >
-        orgname = #{record.orgname,jdbcType=VARCHAR},
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.workid != null" >
-        workid = #{record.workid,jdbcType=VARCHAR},
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.county != null" >
+        county = #{record.county,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=INTEGER},
+      </if>
+      <if test="record.orgName != null" >
+        orgName = #{record.orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgCode != null" >
+        orgCode = #{record.orgCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysCreateName != null" >
+        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateCode != null" >
+        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCreateTime != null" >
+        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUpdateName != null" >
+        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateCode != null" >
+        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysUpdateTime != null" >
+        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysStatus != null" >
+        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -206,13 +336,25 @@
   <update id="updateByExample" parameterType="map" >
     update user
     set id = #{record.id,jdbcType=VARCHAR},
-      accountid = #{record.accountid,jdbcType=VARCHAR},
+      countId = #{record.countId,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
-      age = #{record.age,jdbcType=INTEGER},
-      orgid = #{record.orgid,jdbcType=INTEGER},
-      orgname = #{record.orgname,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
-      workid = #{record.workid,jdbcType=VARCHAR}
+      city = #{record.city,jdbcType=VARCHAR},
+      county = #{record.county,jdbcType=VARCHAR},
+      province = #{record.province,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=INTEGER},
+      orgName = #{record.orgName,jdbcType=VARCHAR},
+      orgCode = #{record.orgCode,jdbcType=INTEGER},
+      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -220,39 +362,87 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.User" >
     update user
     <set >
-      <if test="accountid != null" >
-        accountid = #{accountid,jdbcType=VARCHAR},
+      <if test="countId != null" >
+        countId = #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
-        age = #{age,jdbcType=INTEGER},
-      </if>
-      <if test="orgid != null" >
-        orgid = #{orgid,jdbcType=INTEGER},
-      </if>
-      <if test="orgname != null" >
-        orgname = #{orgname,jdbcType=VARCHAR},
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="workid != null" >
-        workid = #{workid,jdbcType=VARCHAR},
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="orgName != null" >
+        orgName = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        orgCode = #{orgCode,jdbcType=INTEGER},
+      </if>
+      <if test="sysCreateName != null" >
+        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateCode != null" >
+        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCreateTime != null" >
+        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUpdateName != null" >
+        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateCode != null" >
+        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUpdateTime != null" >
+        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysStatus != null" >
+        sysStatus = #{sysStatus,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.User" >
     update user
-    set accountid = #{accountid,jdbcType=VARCHAR},
+    set countId = #{countId,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      age = #{age,jdbcType=INTEGER},
-      orgid = #{orgid,jdbcType=INTEGER},
-      orgname = #{orgname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      workid = #{workid,jdbcType=VARCHAR}
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      orgName = #{orgName,jdbcType=VARCHAR},
+      orgCode = #{orgCode,jdbcType=INTEGER},
+      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
+      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
+      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
+      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
+      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
+      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
+      sysStatus = #{sysStatus,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

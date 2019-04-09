@@ -1,21 +1,19 @@
 package com.wjc.assess.service;
 
-import com.wjc.assess.entity.Account;
-import com.wjc.assess.entity.Totaltime;
 import com.wjc.assess.entity.User;
-import com.wjc.assess.utils.controller.dto.QueryList;
+import com.wjc.assess.utils.controller.dto.ReturnList;
 
 import java.util.List;
 
 public interface TestInterface {
-    void add(Account account);
-    void delete(Account account);
-    void updata(Account account);
-    Account get(Account account);
-    List<Account> getList(Account account,int page,int size);
+    void add(User account);
+    void delete(String[] ids);
+    void updata(User account);
+//    User get(User account);
+    ReturnList getList(User account, int page, int size);
 
-    Account login(Account account);
-    void regist(Account account);
+    User login(User account);
+    void regist(User account);
 
 /* test */
 //    void add(User user);

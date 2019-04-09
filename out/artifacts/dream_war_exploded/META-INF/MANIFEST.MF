@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.0.0
+Built-By: xiaofa
+Implementation-Vendor-Id: live.in.dream
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8
+Main-Class: ${start-class}
+

@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/mytest?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;autoReconnect=true&amp;failOverReadOnly=false"
+                        connectionURL="jdbc:mysql://localhost:3306/CXDLKYYTHXT?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;autoReconnect=true&amp;failOverReadOnly=false"
                         userId="root"
                         password="1">
         </jdbcConnection>
@@ -51,10 +51,23 @@
 
         <!-- 指定数据库表 -->
         <!-- 账户,只包含ID、用户名、密码 -->
-        <table tableName="account" domainObjectName="Account" />
+        <!--<table tableName="user" domainObjectName="User" >-->
+			<!--<property name="useActualColumnNames" value="true"/>-->
+		<!--</table>-->
         <!-- 用户详细信息，包括姓名什么的，不包含用户名、密码 -->
-        <table tableName="user" domainObjectName="User" />
-        <!--<table tableName="totaltime" schema="" />-->
+        <!--<table tableName="AssessTargetManage" domainObjectName="AssessTargetManage" >-->
+			<!--<property name="useActualColumnNames" value="true"/>-->
+		<!--</table>-->
+        <table tableName="AssessManage" domainObjectName="AssessManage">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <!--<table tableName="AssessScore" domainObjectName="AssessScore">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="evaluateReportManage" domainObjectName="EvaluateReportManage">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
         <!--<table schema="DB2ADMIN" tableName="user" domainObjectName="Account" >-->
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
