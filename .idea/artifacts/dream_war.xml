@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="dream-1.0.0.war">
+    <root id="archive" name="hzml.war">
       <element id="artifact" artifact-name="dream:war exploded" />
     </root>
   </artifact>

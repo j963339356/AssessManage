@@ -17,6 +17,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class JarApplication {
 //    public static void main(String[] args) {
-//        SpringApplication.run(DemoApplication.class, args);
+//        SpringApplication.run(JarApplication.class, args);
 //    }
 }

@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery','common','layui','popups','helper'], function ($) {
         var form = layui.form;
         form.render();

@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
         var form = layui.form;
         var layer = layui.layer;
@@ -111,7 +111,7 @@ define(['/common/js/config.js'], function () {
             //初始化表格
             CustomTable.init({
                 elem: "#table",
-                url: 'http://localhost:8080/api/Manage/getList', //数据接口   
+                url: '/hzml/api/Manage/getList', //数据接口
                 where: $('.search-form').serializeForm(),
                 // toolbar: '#tool',
                 // even: true, //开启隔行背景

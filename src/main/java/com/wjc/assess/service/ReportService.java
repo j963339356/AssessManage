@@ -33,6 +33,7 @@ public class ReportService {
         EvaluateReportManageExample.Criteria criteria = example.createCriteria();
         //每一个Criteria里的方法相当于“与”
         criteria.andSysStatusEqualTo(1);
+        example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
 
         if(reportManage.getYear()!=null && !reportManage.getYear().equals("")) {
             criteria.andYearEqualTo(reportManage.getYear());  //年度

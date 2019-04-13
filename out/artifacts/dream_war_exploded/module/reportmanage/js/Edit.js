@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery','common','helper','layui'], function ($, CustomTable) {
         upload = layui.upload;
         form = layui.form;
@@ -30,7 +30,7 @@ define(['/common/js/config.js'], function () {
         //文件上传
         upload.render({
             elem: '#upload'
-            ,url: 'http://localhost:8080/api/File/upload',
+            ,url: '/hzml/api/File/upload',
             headers: {
                 "token": Helper.GetToken(),
                 "Access-Control-Allow-Origin": "*",
@@ -54,7 +54,7 @@ define(['/common/js/config.js'], function () {
         $(".delete").click(function(){
             var name = $("#upload2 input").val()
             var ids = [,name]
-            $.get("http://localhost:8080/api/ReportManage/deleteFile","id="+preSelect.id+"&fileName="+name,function(res){
+            $.get("/hzml/api/ReportManage/deleteFile","id="+preSelect.id+"&fileName="+name,function(res){
                 if(res.response.staticCode == 0){
                     layer.msg("删除成功",{time:1000})
                     $("#upload2 input").val('');
@@ -68,7 +68,7 @@ define(['/common/js/config.js'], function () {
         //下载文件
         $(".view").click(function(){
            var name = $("#upload2 input").val()
-           window.location.href = "http://localhost:8080/api/File/download?ids="+name;
+           window.location.href = "/hzml/api/File/download?ids="+name;
         })
 
         //保存

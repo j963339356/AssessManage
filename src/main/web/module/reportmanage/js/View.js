@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['//hzml/common/js/config.js'], function () {
     require(['jquery', 'common', 'helper', 'layui'], function ($, CustomTable) {
         upload = layui.upload;
         form = layui.form;
@@ -36,7 +36,7 @@ define(['/common/js/config.js'], function () {
         //下载文件
         $(".view").click(function () {
             var name = $("#upload2 input").val()
-            window.location.href = "http://localhost:8080/api/File/download?ids=" + name;
+            window.location.href = "/hzml/api/File/download?ids=" + name;
         })
     })
 })

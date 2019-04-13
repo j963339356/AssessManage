@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'common', 'helper', 'layui','customtable'], function ($) {
         var form = layui.form;
         var user = Helper.GetUser();
@@ -7,7 +7,7 @@ define(['/common/js/config.js'], function () {
         var barChart = echarts.init(document.getElementById('bar'));
 
         //给市赋值
-        $.getJSON("/module/manage/js/cityJson.json", "", function (data) {
+        $.getJSON("/hzml/module/manage/js/cityJson.json", "", function (data) {
             var html = '';
             for (var i = 0; i < data.length; i++) {
                 html += "<option value='" + data[i].NAME + "'>" + data[i].NAME + "</option>"
@@ -150,7 +150,7 @@ define(['/common/js/config.js'], function () {
         //初始化表格
         CustomTable.init({
             elem: "#table1", 
-            url: 'http://localhost:8080/api/Analysis/wholescore', //数据接口   
+            url: '/hzml/api/Analysis/wholescore', //数据接口
             where: $('.search-form').serializeForm(),
             // toolbar: '#tool',
             // even: true, //开启隔行背景

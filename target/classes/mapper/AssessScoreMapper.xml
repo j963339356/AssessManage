@@ -85,7 +85,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    name, id, meansure, p, targetExplain, level, remark, countyScore, cityScore, provinceScore,
+    id, name, meansure, p, targetExplain, level, remark, countyScore, cityScore, provinceScore, 
     year, city, county, province, orgCode, ogrName, sysCreateName, sysCreateCode, sysCreateTime, 
     sysUpdateName, sysUpdateCode, sysUpdateTime, sysStatus
   </sql>

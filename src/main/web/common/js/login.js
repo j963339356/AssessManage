@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'layui', 'popups', 'helper'], function ($) {
         form = layui.form;
         layer = layui.layer;
@@ -11,7 +11,7 @@ define(['/common/js/config.js'], function () {
                 area: ['330px', '320px'],
                 resize: false,
                 move: false,
-                content: ['/module/Login.html', 'no'],
+                content: ['/hzml/module/Login.html', 'no'],
                 success: function () {
 
                 }
@@ -43,7 +43,7 @@ define(['/common/js/config.js'], function () {
                         
                         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
                         if(index==undefined){
-                            window.location.href = "/module/manage/List.html";
+                            window.location.href = "/hzml/module/manage/List.html";
                             return ;
                         }
                         parent.layer.close(index); //再执行关闭
@@ -58,7 +58,7 @@ define(['/common/js/config.js'], function () {
                     else{
                         layer.msg("账号或密码错误", { icon: 2, anim: 6, time: 1000 });
                     }
-                    $('.captcha img').attr('src', 'http://localhost:8080/api/Login/captcha?id=' + Math.random());  //刷新验证码
+                    $('.captcha img').attr('src', '/hzml/api/Login/captcha?id=' + Math.random());  //刷新验证码
                 }
             });
             return false;

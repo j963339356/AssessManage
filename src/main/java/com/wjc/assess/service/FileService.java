@@ -21,10 +21,11 @@ import java.util.UUID;
 public class FileService {
 
     //设置文件路径
-    private String filePath = "C:\\Users\\xiaofa\\Desktop\\lj\\";
+    private String filePath = "/root/upload/";
 
     //上传
     public String upload(MultipartFile multipartFile){
+        System.out.println(filePath);
         //获取文件名
         String fileName = multipartFile.getOriginalFilename();
         fileName = UUID.randomUUID().toString()+fileName;

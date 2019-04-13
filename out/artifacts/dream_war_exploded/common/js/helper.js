@@ -36,7 +36,7 @@ define(['jquery','layui','cookie','popups','login'], function ($) {
         }
         var data = {body: body};
         var ajaxObject = $.extend({
-            url: "http://localhost:8080/api/" + url,       //请求url
+            url: "/hzml/api/" + url,       //请求url
             type: "post",  //post请求
             // data: {},      //要传输的数据
             cache: false,  //不缓存页面

@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
         var form = layui.form;
         var layer = layui.layer;
@@ -36,7 +36,7 @@ define(['/common/js/config.js'], function () {
             //初始化表格
             CustomTable.init({
                 elem: "#table",
-                url: 'http://localhost:8080/api/Manage/provinceNoticeList', //数据接口   
+                url: '/hzml/api/Manage/provinceNoticeList', //数据接口
                 where: $('.search-form').serializeForm(),
                 // toolbar: '#tool',
                 // even: true, //开启隔行背景
@@ -60,7 +60,7 @@ define(['/common/js/config.js'], function () {
         function initCity() {
             $.ajaxSettings.async = false;   //同步调用
             //给市赋值
-            $.getJSON("/module/manage/js/cityJson.json", "", function (data) {
+            $.getJSON("/hzml/module/manage/js/cityJson.json", "", function (data) {
                 var html = '';
                 for (var i = 0; i < data.length; i++) {
                     html += "<option value='" + data[i].NAME + "'>" + data[i].NAME + "</option>"
@@ -72,7 +72,7 @@ define(['/common/js/config.js'], function () {
             //市县联动
             form.on('select(city)', function (data) {
                 console.log(data.value)
-                $.getJSON("/module/manage/js/countyJson.json", "", function (res) {
+                $.getJSON("/hzml/module/manage/js/countyJson.json", "", function (res) {
                     var html = '';
                     for (var i = 0; i < res.length; i++) {
                         if (res[i].PARENT_ID == data.value)
@@ -91,7 +91,7 @@ define(['/common/js/config.js'], function () {
                     $("#city").val(user.city);
                     $("#city").attr("disabled", 'true');
                     form.render('select');
-                    $.getJSON("/module/manage/js/countyJson.json", "", function (res) {
+                    $.getJSON("/hzml/module/manage/js/countyJson.json", "", function (res) {
                         var html = '';
                         for (var i = 0; i < res.length; i++) {
                             if (res[i].PARENT_ID == user.city)

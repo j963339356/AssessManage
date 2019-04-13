@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
         var table = CustomTable.table;
         var user = Helper.GetUser();

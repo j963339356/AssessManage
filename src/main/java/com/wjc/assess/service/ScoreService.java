@@ -29,6 +29,7 @@ public class ScoreService {
         //每一个Criteria里的方法相当于“与”
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());  //年度
+        example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
 
         if(manage.getCity()!=null && !manage.getCity().equals("")){ //辖区市
             criteria.andCityEqualTo(manage.getCity());

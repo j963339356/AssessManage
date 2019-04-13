@@ -1,6 +1,6 @@
-var common = "/common/js/";  //自己的工具
+var common = "/hzml/common/js/";  //自己的工具
 var lib = common + "lib/"; //框架
-var layui = lib + "layui/lay/modules/";  //layui模块
+var layui = lib + "layui/lay/hzml/modules/";  //layui模块
 require.config({
     //By default load any module IDs from js/lib
     baseUrl: '',

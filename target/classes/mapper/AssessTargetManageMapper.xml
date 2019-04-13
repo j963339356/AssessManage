@@ -81,14 +81,9 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List_beiyong" >
+  <sql id="Base_Column_List" >
     id, assessId, name, meansure, p, targetExplain, level, valueType, remark, dimension, 
     orgCode, ogrName, isStart, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, 
-    sysUpdateCode, sysUpdateTime, sysStatus
-  </sql>
-  <sql id="Base_Column_List" >
-    name, id, assessId,  meansure, p, targetExplain, level, valueType, remark, dimension,
-    orgCode, ogrName, isStart, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName,
     sysUpdateCode, sysUpdateTime, sysStatus
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.AssessTargetManageExample" >

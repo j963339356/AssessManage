@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery','common','layui','popups','helper','customtable'], function ($) {
         var form = layui.form;
         form.render();
@@ -94,7 +94,7 @@ define(['/common/js/config.js'], function () {
         //维度表
         CustomTable.init({
             elem: "#table",
-            url: 'http://localhost:8080/api/TargetManage/dimensionList', //数据接口   
+            url: '/hzml/api/TargetManage/dimensionList', //数据接口
             where: data.id,
             page: false,
             // toolbar: '#tool',

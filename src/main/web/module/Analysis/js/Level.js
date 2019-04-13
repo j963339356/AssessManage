@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'common', 'helper'], function ($) {
         var user =  Helper.GetUser();
         // 基于准备好的dom，初始化echarts实例

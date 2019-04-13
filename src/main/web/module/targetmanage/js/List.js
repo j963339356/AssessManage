@@ -1,4 +1,4 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
 
         var layer = layui.layer;
@@ -6,7 +6,7 @@ define(['/common/js/config.js'], function () {
         CustomTable.init({
             elem: "#table",
             // url: 'https://easy-mock.com/mock/5bfcbaba1e288d1547186991/XinWenGuanLi/getList', //数据接口  
-            url: 'http://localhost:8080/api/TargetManage/getList', //数据接口   
+            url: '/hzml/api/TargetManage/getList', //数据接口
             where: $('.search-form').serializeForm(),
             // toolbar: '#tool',
             // even: true, //开启隔行背景

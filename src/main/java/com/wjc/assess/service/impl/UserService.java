@@ -85,6 +85,8 @@ public class UserService implements TestInterface {
         //每一个Criteria里的方法相当于“与”
         criteria.andSysStatusBetween(0,1);
         criteria.andOrgCodeNotEqualTo(0);
+        example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
+
         if(account.getUsername()!=null && !account.getUsername().equals("")){
             criteria.andUsernameLike("%"+account.getUsername()+"%");
         }

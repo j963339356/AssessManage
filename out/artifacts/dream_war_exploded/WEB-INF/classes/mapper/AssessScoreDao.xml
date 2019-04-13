@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjc.assess.dao.AssessScoreDao" >
+    <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessScore" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="meansure" property="meansure" jdbcType="VARCHAR" />
+        <result column="p" property="p" jdbcType="VARCHAR" />
+        <result column="targetExplain" property="targetExplain" jdbcType="VARCHAR" />
+        <result column="level" property="level" jdbcType="INTEGER" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+        <result column="countyScore" property="countyScore" jdbcType="INTEGER" />
+        <result column="cityScore" property="cityScore" jdbcType="INTEGER" />
+        <result column="provinceScore" property="provinceScore" jdbcType="INTEGER" />
+        <result column="year" property="year" jdbcType="INTEGER" />
+        <result column="city" property="city" jdbcType="VARCHAR" />
+        <result column="county" property="county" jdbcType="VARCHAR" />
+        <result column="province" property="province" jdbcType="VARCHAR" />
+        <result column="orgCode" property="orgCode" jdbcType="INTEGER" />
+        <result column="ogrName" property="ogrName" jdbcType="VARCHAR" />
+        <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
+        <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
+        <result column="sysCreateTime" property="sysCreateTime" jdbcType="TIMESTAMP" />
+        <result column="sysUpdateName" property="sysUpdateName" jdbcType="VARCHAR" />
+        <result column="sysUpdateCode" property="sysUpdateCode" jdbcType="VARCHAR" />
+        <result column="sysUpdateTime" property="sysUpdateTime" jdbcType="TIMESTAMP" />
+        <result column="sysStatus" property="sysStatus" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+    id, name, meansure, p, targetExplain, level, remark, countyScore, cityScore, provinceScore,
+    year, city, county, province, orgCode, ogrName, sysCreateName, sysCreateCode, sysCreateTime,
+    sysUpdateName, sysUpdateCode, sysUpdateTime, sysStatus
+    </sql>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <select id="countByExample" parameterType="com.wjc.assess.entity.AssessScoreExample" resultType="java.lang.Integer" >
+        select count(*) from (select count(*) from assessscore
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        group by name)a
+    </select>
+
+    <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessScoreExample" resultMap="com.wjc.assess.dao.AssessScoreDao.BaseResultMap">
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from assessscore
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+        group by name
+    </select>
+</mapper>

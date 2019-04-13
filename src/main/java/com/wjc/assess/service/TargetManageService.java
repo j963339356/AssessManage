@@ -3,6 +3,7 @@ package com.wjc.assess.service;
 import com.github.pagehelper.PageHelper;
 import com.wjc.assess.Enum.ExceptionEnum;
 import com.wjc.assess.Exception.CustomException;
+import com.wjc.assess.dao.AssessScoreDao;
 import com.wjc.assess.dao.AssessScoreMapper;
 import com.wjc.assess.dao.AssessTargetManageMapper;
 import com.wjc.assess.entity.*;
@@ -25,7 +26,7 @@ public class TargetManageService {
     private AssessTargetManageMapper targetDao;
 
     @Autowired
-    private AssessScoreMapper scoreDao;
+    private AssessScoreDao scoreDao;
 
     //查询
     public ReturnList getList(AssessTargetManage targetManage, int page, int size){
@@ -57,8 +58,7 @@ public class TargetManageService {
         AssessScoreExample.Criteria criteria = example.createCriteria();
         //每一个Criteria里的方法相当于“与”
         criteria.andSysStatusEqualTo(1);
-        example.setDistinct(true);
-
+        example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
 
         if(targetManage.getName()!= null && !targetManage.getName().equals("")){
             criteria.andNameLike("%"+targetManage.getName()+"%");   //指标名称

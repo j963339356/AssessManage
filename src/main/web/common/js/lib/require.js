@@ -281,7 +281,7 @@ var requirejs, require, define;
                 if (baseName) {
                     //Convert baseName to array, and lop off the last part,
                     //so that . matches that 'directory' and not name of the baseName's
-                    //module. For instance, baseName of 'one/two/three', maps to
+                    //hzml/module. For instance, baseName of 'one/two/three', maps to
                     //'one/two/three.js', but we want the directory, 'one/two' for
                     //this normalization.
                     normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
@@ -1485,7 +1485,7 @@ var requirejs, require, define;
 
                         if (mod) {
                             //Hold on to listeners in case the
-                            //module will be attempted to be reloaded
+                            //hzml/module will be attempted to be reloaded
                             //using a different config.
                             if (mod.events.defined) {
                                 undefEvents[id] = mod.events;

@@ -1,53 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wjc.assess.dao.AssessManageMapper">
-  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessManage">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="year" jdbcType="INTEGER" property="year" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="county" jdbcType="VARCHAR" property="county" />
-    <result column="province" jdbcType="VARCHAR" property="province" />
-    <result column="orgCode" jdbcType="VARCHAR" property="orgCode" />
-    <result column="orgName" jdbcType="VARCHAR" property="orgName" />
-    <result column="writerId" jdbcType="VARCHAR" property="writerId" />
-    <result column="writerName" jdbcType="VARCHAR" property="writerName" />
-    <result column="writerPhone" jdbcType="VARCHAR" property="writerPhone" />
-    <result column="writeDate" jdbcType="TIMESTAMP" property="writeDate" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
-    <result column="countyScore" jdbcType="INTEGER" property="countyScore" />
-    <result column="cityScore" jdbcType="INTEGER" property="cityScore" />
-    <result column="provinceScore" jdbcType="INTEGER" property="provinceScore" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="processName" jdbcType="VARCHAR" property="processName" />
-    <result column="noticeStart" jdbcType="TIMESTAMP" property="noticeStart" />
-    <result column="noticeEnd" jdbcType="TIMESTAMP" property="noticeEnd" />
-    <result column="sysCreateName" jdbcType="VARCHAR" property="sysCreateName" />
-    <result column="sysCreateCode" jdbcType="VARCHAR" property="sysCreateCode" />
-    <result column="sysCreateTime" jdbcType="TIMESTAMP" property="sysCreateTime" />
-    <result column="sysUpdateName" jdbcType="VARCHAR" property="sysUpdateName" />
-    <result column="sysUpdateCode" jdbcType="VARCHAR" property="sysUpdateCode" />
-    <result column="sysUpdateTime" jdbcType="TIMESTAMP" property="sysUpdateTime" />
-    <result column="sysStatus" jdbcType="INTEGER" property="sysStatus" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjc.assess.dao.AssessManageMapper" >
+  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessManage" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="county" property="county" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="VARCHAR" />
+    <result column="orgName" property="orgName" jdbcType="VARCHAR" />
+    <result column="writerId" property="writerId" jdbcType="VARCHAR" />
+    <result column="writerName" property="writerName" jdbcType="VARCHAR" />
+    <result column="writerPhone" property="writerPhone" jdbcType="VARCHAR" />
+    <result column="writeDate" property="writeDate" jdbcType="TIMESTAMP" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="countyScore" property="countyScore" jdbcType="INTEGER" />
+    <result column="cityScore" property="cityScore" jdbcType="INTEGER" />
+    <result column="provinceScore" property="provinceScore" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="processName" property="processName" jdbcType="VARCHAR" />
+    <result column="noticeStart" property="noticeStart" jdbcType="TIMESTAMP" />
+    <result column="noticeEnd" property="noticeEnd" jdbcType="TIMESTAMP" />
+    <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
+    <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
+    <result column="sysCreateTime" property="sysCreateTime" jdbcType="TIMESTAMP" />
+    <result column="sysUpdateName" property="sysUpdateName" jdbcType="VARCHAR" />
+    <result column="sysUpdateCode" property="sysUpdateCode" jdbcType="VARCHAR" />
+    <result column="sysUpdateTime" property="sysUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="sysStatus" property="sysStatus" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -58,25 +58,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -87,43 +87,43 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, year, city, county, province, orgCode, orgName, writerId, writerName, writerPhone, 
     writeDate, level, countyScore, cityScore, provinceScore, status, processName, noticeStart, 
     noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
     sysUpdateTime, sysStatus
   </sql>
-  <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.AssessManageExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from assessmanage
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from assessmanage
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from assessmanage
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessManageExample">
+  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessManageExample" >
     delete from assessmanage
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.wjc.assess.entity.AssessManage">
+  <insert id="insert" parameterType="com.wjc.assess.entity.AssessManage" >
     insert into assessmanage (id, year, city, 
       county, province, orgCode, 
       orgName, writerId, writerName, 
@@ -143,262 +143,262 @@
       #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
       #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage">
+  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage" >
     insert into assessmanage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="year != null">
+      <if test="year != null" >
         year,
       </if>
-      <if test="city != null">
+      <if test="city != null" >
         city,
       </if>
-      <if test="county != null">
+      <if test="county != null" >
         county,
       </if>
-      <if test="province != null">
+      <if test="province != null" >
         province,
       </if>
-      <if test="orgCode != null">
+      <if test="orgCode != null" >
         orgCode,
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         orgName,
       </if>
-      <if test="writerId != null">
+      <if test="writerId != null" >
         writerId,
       </if>
-      <if test="writerName != null">
+      <if test="writerName != null" >
         writerName,
       </if>
-      <if test="writerPhone != null">
+      <if test="writerPhone != null" >
         writerPhone,
       </if>
-      <if test="writeDate != null">
+      <if test="writeDate != null" >
         writeDate,
       </if>
-      <if test="level != null">
+      <if test="level != null" >
         level,
       </if>
-      <if test="countyScore != null">
+      <if test="countyScore != null" >
         countyScore,
       </if>
-      <if test="cityScore != null">
+      <if test="cityScore != null" >
         cityScore,
       </if>
-      <if test="provinceScore != null">
+      <if test="provinceScore != null" >
         provinceScore,
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status,
       </if>
-      <if test="processName != null">
+      <if test="processName != null" >
         processName,
       </if>
-      <if test="noticeStart != null">
+      <if test="noticeStart != null" >
         noticeStart,
       </if>
-      <if test="noticeEnd != null">
+      <if test="noticeEnd != null" >
         noticeEnd,
       </if>
-      <if test="sysCreateName != null">
+      <if test="sysCreateName != null" >
         sysCreateName,
       </if>
-      <if test="sysCreateCode != null">
+      <if test="sysCreateCode != null" >
         sysCreateCode,
       </if>
-      <if test="sysCreateTime != null">
+      <if test="sysCreateTime != null" >
         sysCreateTime,
       </if>
-      <if test="sysUpdateName != null">
+      <if test="sysUpdateName != null" >
         sysUpdateName,
       </if>
-      <if test="sysUpdateCode != null">
+      <if test="sysUpdateCode != null" >
         sysUpdateCode,
       </if>
-      <if test="sysUpdateTime != null">
+      <if test="sysUpdateTime != null" >
         sysUpdateTime,
       </if>
-      <if test="sysStatus != null">
+      <if test="sysStatus != null" >
         sysStatus,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="year != null">
+      <if test="year != null" >
         #{year,jdbcType=INTEGER},
       </if>
-      <if test="city != null">
+      <if test="city != null" >
         #{city,jdbcType=VARCHAR},
       </if>
-      <if test="county != null">
+      <if test="county != null" >
         #{county,jdbcType=VARCHAR},
       </if>
-      <if test="province != null">
+      <if test="province != null" >
         #{province,jdbcType=VARCHAR},
       </if>
-      <if test="orgCode != null">
+      <if test="orgCode != null" >
         #{orgCode,jdbcType=VARCHAR},
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         #{orgName,jdbcType=VARCHAR},
       </if>
-      <if test="writerId != null">
+      <if test="writerId != null" >
         #{writerId,jdbcType=VARCHAR},
       </if>
-      <if test="writerName != null">
+      <if test="writerName != null" >
         #{writerName,jdbcType=VARCHAR},
       </if>
-      <if test="writerPhone != null">
+      <if test="writerPhone != null" >
         #{writerPhone,jdbcType=VARCHAR},
       </if>
-      <if test="writeDate != null">
+      <if test="writeDate != null" >
         #{writeDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="level != null">
+      <if test="level != null" >
         #{level,jdbcType=VARCHAR},
       </if>
-      <if test="countyScore != null">
+      <if test="countyScore != null" >
         #{countyScore,jdbcType=INTEGER},
       </if>
-      <if test="cityScore != null">
+      <if test="cityScore != null" >
         #{cityScore,jdbcType=INTEGER},
       </if>
-      <if test="provinceScore != null">
+      <if test="provinceScore != null" >
         #{provinceScore,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="processName != null">
+      <if test="processName != null" >
         #{processName,jdbcType=VARCHAR},
       </if>
-      <if test="noticeStart != null">
+      <if test="noticeStart != null" >
         #{noticeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="noticeEnd != null">
+      <if test="noticeEnd != null" >
         #{noticeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysCreateName != null">
+      <if test="sysCreateName != null" >
         #{sysCreateName,jdbcType=VARCHAR},
       </if>
-      <if test="sysCreateCode != null">
+      <if test="sysCreateCode != null" >
         #{sysCreateCode,jdbcType=VARCHAR},
       </if>
-      <if test="sysCreateTime != null">
+      <if test="sysCreateTime != null" >
         #{sysCreateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysUpdateName != null">
+      <if test="sysUpdateName != null" >
         #{sysUpdateName,jdbcType=VARCHAR},
       </if>
-      <if test="sysUpdateCode != null">
+      <if test="sysUpdateCode != null" >
         #{sysUpdateCode,jdbcType=VARCHAR},
       </if>
-      <if test="sysUpdateTime != null">
+      <if test="sysUpdateTime != null" >
         #{sysUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysStatus != null">
+      <if test="sysStatus != null" >
         #{sysStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultType="java.lang.Integer" >
     select count(*) from assessmanage
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update assessmanage
-    <set>
-      <if test="record.id != null">
+    <set >
+      <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.year != null">
+      <if test="record.year != null" >
         year = #{record.year,jdbcType=INTEGER},
       </if>
-      <if test="record.city != null">
+      <if test="record.city != null" >
         city = #{record.city,jdbcType=VARCHAR},
       </if>
-      <if test="record.county != null">
+      <if test="record.county != null" >
         county = #{record.county,jdbcType=VARCHAR},
       </if>
-      <if test="record.province != null">
+      <if test="record.province != null" >
         province = #{record.province,jdbcType=VARCHAR},
       </if>
-      <if test="record.orgCode != null">
+      <if test="record.orgCode != null" >
         orgCode = #{record.orgCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.orgName != null">
+      <if test="record.orgName != null" >
         orgName = #{record.orgName,jdbcType=VARCHAR},
       </if>
-      <if test="record.writerId != null">
+      <if test="record.writerId != null" >
         writerId = #{record.writerId,jdbcType=VARCHAR},
       </if>
-      <if test="record.writerName != null">
+      <if test="record.writerName != null" >
         writerName = #{record.writerName,jdbcType=VARCHAR},
       </if>
-      <if test="record.writerPhone != null">
+      <if test="record.writerPhone != null" >
         writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
       </if>
-      <if test="record.writeDate != null">
+      <if test="record.writeDate != null" >
         writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.level != null">
+      <if test="record.level != null" >
         level = #{record.level,jdbcType=VARCHAR},
       </if>
-      <if test="record.countyScore != null">
+      <if test="record.countyScore != null" >
         countyScore = #{record.countyScore,jdbcType=INTEGER},
       </if>
-      <if test="record.cityScore != null">
+      <if test="record.cityScore != null" >
         cityScore = #{record.cityScore,jdbcType=INTEGER},
       </if>
-      <if test="record.provinceScore != null">
+      <if test="record.provinceScore != null" >
         provinceScore = #{record.provinceScore,jdbcType=INTEGER},
       </if>
-      <if test="record.status != null">
+      <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
-      <if test="record.processName != null">
+      <if test="record.processName != null" >
         processName = #{record.processName,jdbcType=VARCHAR},
       </if>
-      <if test="record.noticeStart != null">
+      <if test="record.noticeStart != null" >
         noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.noticeEnd != null">
+      <if test="record.noticeEnd != null" >
         noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.sysCreateName != null">
+      <if test="record.sysCreateName != null" >
         sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sysCreateCode != null">
+      <if test="record.sysCreateCode != null" >
         sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.sysCreateTime != null">
+      <if test="record.sysCreateTime != null" >
         sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.sysUpdateName != null">
+      <if test="record.sysUpdateName != null" >
         sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sysUpdateCode != null">
+      <if test="record.sysUpdateCode != null" >
         sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.sysUpdateTime != null">
+      <if test="record.sysUpdateTime != null" >
         sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.sysStatus != null">
+      <if test="record.sysStatus != null" >
         sysStatus = #{record.sysStatus,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update assessmanage
     set id = #{record.id,jdbcType=VARCHAR},
       year = #{record.year,jdbcType=INTEGER},
@@ -426,1709 +426,92 @@
       sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
       sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
       sysStatus = #{record.sysStatus,jdbcType=INTEGER}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessManage">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessManage" >
     update assessmanage
-    <set>
-      <if test="year != null">
+    <set >
+      <if test="year != null" >
         year = #{year,jdbcType=INTEGER},
       </if>
-      <if test="city != null">
+      <if test="city != null" >
         city = #{city,jdbcType=VARCHAR},
       </if>
-      <if test="county != null">
+      <if test="county != null" >
         county = #{county,jdbcType=VARCHAR},
       </if>
-      <if test="province != null">
+      <if test="province != null" >
         province = #{province,jdbcType=VARCHAR},
       </if>
-      <if test="orgCode != null">
+      <if test="orgCode != null" >
         orgCode = #{orgCode,jdbcType=VARCHAR},
       </if>
-      <if test="orgName != null">
+      <if test="orgName != null" >
         orgName = #{orgName,jdbcType=VARCHAR},
       </if>
-      <if test="writerId != null">
+      <if test="writerId != null" >
         writerId = #{writerId,jdbcType=VARCHAR},
       </if>
-      <if test="writerName != null">
+      <if test="writerName != null" >
         writerName = #{writerName,jdbcType=VARCHAR},
       </if>
-      <if test="writerPhone != null">
+      <if test="writerPhone != null" >
         writerPhone = #{writerPhone,jdbcType=VARCHAR},
       </if>
-      <if test="writeDate != null">
+      <if test="writeDate != null" >
         writeDate = #{writeDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="level != null">
+      <if test="level != null" >
         level = #{level,jdbcType=VARCHAR},
       </if>
-      <if test="countyScore != null">
+      <if test="countyScore != null" >
         countyScore = #{countyScore,jdbcType=INTEGER},
       </if>
-      <if test="cityScore != null">
+      <if test="cityScore != null" >
         cityScore = #{cityScore,jdbcType=INTEGER},
       </if>
-      <if test="provinceScore != null">
+      <if test="provinceScore != null" >
         provinceScore = #{provinceScore,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="processName != null">
+      <if test="processName != null" >
         processName = #{processName,jdbcType=VARCHAR},
       </if>
-      <if test="noticeStart != null">
+      <if test="noticeStart != null" >
         noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="noticeEnd != null">
+      <if test="noticeEnd != null" >
         noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysCreateName != null">
+      <if test="sysCreateName != null" >
         sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
       </if>
-      <if test="sysCreateCode != null">
+      <if test="sysCreateCode != null" >
         sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
       </if>
-      <if test="sysCreateTime != null">
+      <if test="sysCreateTime != null" >
         sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysUpdateName != null">
+      <if test="sysUpdateName != null" >
         sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
       </if>
-      <if test="sysUpdateCode != null">
+      <if test="sysUpdateCode != null" >
         sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
       </if>
-      <if test="sysUpdateTime != null">
+      <if test="sysUpdateTime != null" >
         sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="sysStatus != null">
+      <if test="sysStatus != null" >
         sysStatus = #{sysStatus,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    set year = #{year,jdbcType=INTEGER},
-      city = #{city,jdbcType=VARCHAR},
-      county = #{county,jdbcType=VARCHAR},
-      province = #{province,jdbcType=VARCHAR},
-      orgCode = #{orgCode,jdbcType=VARCHAR},
-      orgName = #{orgName,jdbcType=VARCHAR},
-      writerId = #{writerId,jdbcType=VARCHAR},
-      writerName = #{writerName,jdbcType=VARCHAR},
-      writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      level = #{level,jdbcType=VARCHAR},
-      countyScore = #{countyScore,jdbcType=INTEGER},
-      cityScore = #{cityScore,jdbcType=INTEGER},
-      provinceScore = #{provinceScore,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER},
-      processName = #{processName,jdbcType=VARCHAR},
-      noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{sysStatus,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessManage">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="year" jdbcType="INTEGER" property="year" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="county" jdbcType="VARCHAR" property="county" />
-    <result column="province" jdbcType="VARCHAR" property="province" />
-    <result column="orgCode" jdbcType="VARCHAR" property="orgCode" />
-    <result column="orgName" jdbcType="VARCHAR" property="orgName" />
-    <result column="writerId" jdbcType="VARCHAR" property="writerId" />
-    <result column="writerName" jdbcType="VARCHAR" property="writerName" />
-    <result column="writerPhone" jdbcType="VARCHAR" property="writerPhone" />
-    <result column="writeDate" jdbcType="TIMESTAMP" property="writeDate" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
-    <result column="countyScore" jdbcType="INTEGER" property="countyScore" />
-    <result column="cityScore" jdbcType="INTEGER" property="cityScore" />
-    <result column="provinceScore" jdbcType="INTEGER" property="provinceScore" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="processName" jdbcType="VARCHAR" property="processName" />
-    <result column="noticeStart" jdbcType="TIMESTAMP" property="noticeStart" />
-    <result column="noticeEnd" jdbcType="TIMESTAMP" property="noticeEnd" />
-    <result column="sysCreateName" jdbcType="VARCHAR" property="sysCreateName" />
-    <result column="sysCreateCode" jdbcType="VARCHAR" property="sysCreateCode" />
-    <result column="sysCreateTime" jdbcType="TIMESTAMP" property="sysCreateTime" />
-    <result column="sysUpdateName" jdbcType="VARCHAR" property="sysUpdateName" />
-    <result column="sysUpdateCode" jdbcType="VARCHAR" property="sysUpdateCode" />
-    <result column="sysUpdateTime" jdbcType="TIMESTAMP" property="sysUpdateTime" />
-    <result column="sysStatus" jdbcType="INTEGER" property="sysStatus" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, year, city, county, province, orgCode, orgName, writerId, writerName, writerPhone, 
-    writeDate, level, countyScore, cityScore, provinceScore, status, processName, noticeStart, 
-    noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
-    sysUpdateTime, sysStatus
-  </sql>
-  <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessManageExample">
-    delete from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage (id, year, city, 
-      county, province, orgCode, 
-      orgName, writerId, writerName, 
-      writerPhone, writeDate, level, 
-      countyScore, cityScore, provinceScore, 
-      status, processName, noticeStart, 
-      noticeEnd, sysCreateName, sysCreateCode, 
-      sysCreateTime, sysUpdateName, sysUpdateCode, 
-      sysUpdateTime, sysStatus)
-    values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
-      #{county,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
-      #{orgName,jdbcType=VARCHAR}, #{writerId,jdbcType=VARCHAR}, #{writerName,jdbcType=VARCHAR}, 
-      #{writerPhone,jdbcType=VARCHAR}, #{writeDate,jdbcType=TIMESTAMP}, #{level,jdbcType=VARCHAR}, 
-      #{countyScore,jdbcType=INTEGER}, #{cityScore,jdbcType=INTEGER}, #{provinceScore,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{processName,jdbcType=VARCHAR}, #{noticeStart,jdbcType=TIMESTAMP}, 
-      #{noticeEnd,jdbcType=TIMESTAMP}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
-      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
-      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="year != null">
-        year,
-      </if>
-      <if test="city != null">
-        city,
-      </if>
-      <if test="county != null">
-        county,
-      </if>
-      <if test="province != null">
-        province,
-      </if>
-      <if test="orgCode != null">
-        orgCode,
-      </if>
-      <if test="orgName != null">
-        orgName,
-      </if>
-      <if test="writerId != null">
-        writerId,
-      </if>
-      <if test="writerName != null">
-        writerName,
-      </if>
-      <if test="writerPhone != null">
-        writerPhone,
-      </if>
-      <if test="writeDate != null">
-        writeDate,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="countyScore != null">
-        countyScore,
-      </if>
-      <if test="cityScore != null">
-        cityScore,
-      </if>
-      <if test="provinceScore != null">
-        provinceScore,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="processName != null">
-        processName,
-      </if>
-      <if test="noticeStart != null">
-        noticeStart,
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd,
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName,
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode,
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime,
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName,
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode,
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime,
-      </if>
-      <if test="sysStatus != null">
-        sysStatus,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="year != null">
-        #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultType="java.lang.Integer">
-    select count(*) from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update assessmanage
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.year != null">
-        year = #{record.year,jdbcType=INTEGER},
-      </if>
-      <if test="record.city != null">
-        city = #{record.city,jdbcType=VARCHAR},
-      </if>
-      <if test="record.county != null">
-        county = #{record.county,jdbcType=VARCHAR},
-      </if>
-      <if test="record.province != null">
-        province = #{record.province,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgCode != null">
-        orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgName != null">
-        orgName = #{record.orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerId != null">
-        writerId = #{record.writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerName != null">
-        writerName = #{record.writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerPhone != null">
-        writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writeDate != null">
-        writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.level != null">
-        level = #{record.level,jdbcType=VARCHAR},
-      </if>
-      <if test="record.countyScore != null">
-        countyScore = #{record.countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.cityScore != null">
-        cityScore = #{record.cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.provinceScore != null">
-        provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
-      </if>
-      <if test="record.processName != null">
-        processName = #{record.processName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.noticeStart != null">
-        noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.noticeEnd != null">
-        noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysCreateName != null">
-        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateCode != null">
-        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateTime != null">
-        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysUpdateName != null">
-        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateCode != null">
-        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateTime != null">
-        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysStatus != null">
-        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update assessmanage
-    set id = #{record.id,jdbcType=VARCHAR},
-      year = #{record.year,jdbcType=INTEGER},
-      city = #{record.city,jdbcType=VARCHAR},
-      county = #{record.county,jdbcType=VARCHAR},
-      province = #{record.province,jdbcType=VARCHAR},
-      orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      orgName = #{record.orgName,jdbcType=VARCHAR},
-      writerId = #{record.writerId,jdbcType=VARCHAR},
-      writerName = #{record.writerName,jdbcType=VARCHAR},
-      writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      level = #{record.level,jdbcType=VARCHAR},
-      countyScore = #{record.countyScore,jdbcType=INTEGER},
-      cityScore = #{record.cityScore,jdbcType=INTEGER},
-      provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER},
-      processName = #{record.processName,jdbcType=VARCHAR},
-      noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    <set>
-      <if test="year != null">
-        year = #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        county = #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        province = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        orgCode = #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        orgName = #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        writerId = #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        writerName = #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        level = #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        countyScore = #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        cityScore = #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        provinceScore = #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        processName = #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        sysStatus = #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    set year = #{year,jdbcType=INTEGER},
-      city = #{city,jdbcType=VARCHAR},
-      county = #{county,jdbcType=VARCHAR},
-      province = #{province,jdbcType=VARCHAR},
-      orgCode = #{orgCode,jdbcType=VARCHAR},
-      orgName = #{orgName,jdbcType=VARCHAR},
-      writerId = #{writerId,jdbcType=VARCHAR},
-      writerName = #{writerName,jdbcType=VARCHAR},
-      writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      level = #{level,jdbcType=VARCHAR},
-      countyScore = #{countyScore,jdbcType=INTEGER},
-      cityScore = #{cityScore,jdbcType=INTEGER},
-      provinceScore = #{provinceScore,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER},
-      processName = #{processName,jdbcType=VARCHAR},
-      noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{sysStatus,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessManage">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="year" jdbcType="INTEGER" property="year" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="county" jdbcType="VARCHAR" property="county" />
-    <result column="province" jdbcType="VARCHAR" property="province" />
-    <result column="orgCode" jdbcType="VARCHAR" property="orgCode" />
-    <result column="orgName" jdbcType="VARCHAR" property="orgName" />
-    <result column="writerId" jdbcType="VARCHAR" property="writerId" />
-    <result column="writerName" jdbcType="VARCHAR" property="writerName" />
-    <result column="writerPhone" jdbcType="VARCHAR" property="writerPhone" />
-    <result column="writeDate" jdbcType="TIMESTAMP" property="writeDate" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
-    <result column="countyScore" jdbcType="INTEGER" property="countyScore" />
-    <result column="cityScore" jdbcType="INTEGER" property="cityScore" />
-    <result column="provinceScore" jdbcType="INTEGER" property="provinceScore" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="processName" jdbcType="VARCHAR" property="processName" />
-    <result column="noticeStart" jdbcType="TIMESTAMP" property="noticeStart" />
-    <result column="noticeEnd" jdbcType="TIMESTAMP" property="noticeEnd" />
-    <result column="sysCreateName" jdbcType="VARCHAR" property="sysCreateName" />
-    <result column="sysCreateCode" jdbcType="VARCHAR" property="sysCreateCode" />
-    <result column="sysCreateTime" jdbcType="TIMESTAMP" property="sysCreateTime" />
-    <result column="sysUpdateName" jdbcType="VARCHAR" property="sysUpdateName" />
-    <result column="sysUpdateCode" jdbcType="VARCHAR" property="sysUpdateCode" />
-    <result column="sysUpdateTime" jdbcType="TIMESTAMP" property="sysUpdateTime" />
-    <result column="sysStatus" jdbcType="INTEGER" property="sysStatus" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, year, city, county, province, orgCode, orgName, writerId, writerName, writerPhone, 
-    writeDate, level, countyScore, cityScore, provinceScore, status, processName, noticeStart, 
-    noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
-    sysUpdateTime, sysStatus
-  </sql>
-  <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessManageExample">
-    delete from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage (id, year, city, 
-      county, province, orgCode, 
-      orgName, writerId, writerName, 
-      writerPhone, writeDate, level, 
-      countyScore, cityScore, provinceScore, 
-      status, processName, noticeStart, 
-      noticeEnd, sysCreateName, sysCreateCode, 
-      sysCreateTime, sysUpdateName, sysUpdateCode, 
-      sysUpdateTime, sysStatus)
-    values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
-      #{county,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
-      #{orgName,jdbcType=VARCHAR}, #{writerId,jdbcType=VARCHAR}, #{writerName,jdbcType=VARCHAR}, 
-      #{writerPhone,jdbcType=VARCHAR}, #{writeDate,jdbcType=TIMESTAMP}, #{level,jdbcType=VARCHAR}, 
-      #{countyScore,jdbcType=INTEGER}, #{cityScore,jdbcType=INTEGER}, #{provinceScore,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{processName,jdbcType=VARCHAR}, #{noticeStart,jdbcType=TIMESTAMP}, 
-      #{noticeEnd,jdbcType=TIMESTAMP}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
-      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
-      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="year != null">
-        year,
-      </if>
-      <if test="city != null">
-        city,
-      </if>
-      <if test="county != null">
-        county,
-      </if>
-      <if test="province != null">
-        province,
-      </if>
-      <if test="orgCode != null">
-        orgCode,
-      </if>
-      <if test="orgName != null">
-        orgName,
-      </if>
-      <if test="writerId != null">
-        writerId,
-      </if>
-      <if test="writerName != null">
-        writerName,
-      </if>
-      <if test="writerPhone != null">
-        writerPhone,
-      </if>
-      <if test="writeDate != null">
-        writeDate,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="countyScore != null">
-        countyScore,
-      </if>
-      <if test="cityScore != null">
-        cityScore,
-      </if>
-      <if test="provinceScore != null">
-        provinceScore,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="processName != null">
-        processName,
-      </if>
-      <if test="noticeStart != null">
-        noticeStart,
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd,
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName,
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode,
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime,
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName,
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode,
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime,
-      </if>
-      <if test="sysStatus != null">
-        sysStatus,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="year != null">
-        #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultType="java.lang.Integer">
-    select count(*) from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update assessmanage
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.year != null">
-        year = #{record.year,jdbcType=INTEGER},
-      </if>
-      <if test="record.city != null">
-        city = #{record.city,jdbcType=VARCHAR},
-      </if>
-      <if test="record.county != null">
-        county = #{record.county,jdbcType=VARCHAR},
-      </if>
-      <if test="record.province != null">
-        province = #{record.province,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgCode != null">
-        orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgName != null">
-        orgName = #{record.orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerId != null">
-        writerId = #{record.writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerName != null">
-        writerName = #{record.writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerPhone != null">
-        writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writeDate != null">
-        writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.level != null">
-        level = #{record.level,jdbcType=VARCHAR},
-      </if>
-      <if test="record.countyScore != null">
-        countyScore = #{record.countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.cityScore != null">
-        cityScore = #{record.cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.provinceScore != null">
-        provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
-      </if>
-      <if test="record.processName != null">
-        processName = #{record.processName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.noticeStart != null">
-        noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.noticeEnd != null">
-        noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysCreateName != null">
-        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateCode != null">
-        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateTime != null">
-        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysUpdateName != null">
-        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateCode != null">
-        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateTime != null">
-        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysStatus != null">
-        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update assessmanage
-    set id = #{record.id,jdbcType=VARCHAR},
-      year = #{record.year,jdbcType=INTEGER},
-      city = #{record.city,jdbcType=VARCHAR},
-      county = #{record.county,jdbcType=VARCHAR},
-      province = #{record.province,jdbcType=VARCHAR},
-      orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      orgName = #{record.orgName,jdbcType=VARCHAR},
-      writerId = #{record.writerId,jdbcType=VARCHAR},
-      writerName = #{record.writerName,jdbcType=VARCHAR},
-      writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      level = #{record.level,jdbcType=VARCHAR},
-      countyScore = #{record.countyScore,jdbcType=INTEGER},
-      cityScore = #{record.cityScore,jdbcType=INTEGER},
-      provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER},
-      processName = #{record.processName,jdbcType=VARCHAR},
-      noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    <set>
-      <if test="year != null">
-        year = #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        county = #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        province = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        orgCode = #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        orgName = #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        writerId = #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        writerName = #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        level = #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        countyScore = #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        cityScore = #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        provinceScore = #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        processName = #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        sysStatus = #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    set year = #{year,jdbcType=INTEGER},
-      city = #{city,jdbcType=VARCHAR},
-      county = #{county,jdbcType=VARCHAR},
-      province = #{province,jdbcType=VARCHAR},
-      orgCode = #{orgCode,jdbcType=VARCHAR},
-      orgName = #{orgName,jdbcType=VARCHAR},
-      writerId = #{writerId,jdbcType=VARCHAR},
-      writerName = #{writerName,jdbcType=VARCHAR},
-      writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      level = #{level,jdbcType=VARCHAR},
-      countyScore = #{countyScore,jdbcType=INTEGER},
-      cityScore = #{cityScore,jdbcType=INTEGER},
-      provinceScore = #{provinceScore,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER},
-      processName = #{processName,jdbcType=VARCHAR},
-      noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{sysStatus,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.wjc.assess.entity.AssessManage">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="year" jdbcType="INTEGER" property="year" />
-    <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="county" jdbcType="VARCHAR" property="county" />
-    <result column="province" jdbcType="VARCHAR" property="province" />
-    <result column="orgCode" jdbcType="VARCHAR" property="orgCode" />
-    <result column="orgName" jdbcType="VARCHAR" property="orgName" />
-    <result column="writerId" jdbcType="VARCHAR" property="writerId" />
-    <result column="writerName" jdbcType="VARCHAR" property="writerName" />
-    <result column="writerPhone" jdbcType="VARCHAR" property="writerPhone" />
-    <result column="writeDate" jdbcType="TIMESTAMP" property="writeDate" />
-    <result column="level" jdbcType="VARCHAR" property="level" />
-    <result column="countyScore" jdbcType="INTEGER" property="countyScore" />
-    <result column="cityScore" jdbcType="INTEGER" property="cityScore" />
-    <result column="provinceScore" jdbcType="INTEGER" property="provinceScore" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="processName" jdbcType="VARCHAR" property="processName" />
-    <result column="noticeStart" jdbcType="TIMESTAMP" property="noticeStart" />
-    <result column="noticeEnd" jdbcType="TIMESTAMP" property="noticeEnd" />
-    <result column="sysCreateName" jdbcType="VARCHAR" property="sysCreateName" />
-    <result column="sysCreateCode" jdbcType="VARCHAR" property="sysCreateCode" />
-    <result column="sysCreateTime" jdbcType="TIMESTAMP" property="sysCreateTime" />
-    <result column="sysUpdateName" jdbcType="VARCHAR" property="sysUpdateName" />
-    <result column="sysUpdateCode" jdbcType="VARCHAR" property="sysUpdateCode" />
-    <result column="sysUpdateTime" jdbcType="TIMESTAMP" property="sysUpdateTime" />
-    <result column="sysStatus" jdbcType="INTEGER" property="sysStatus" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, year, city, county, province, orgCode, orgName, writerId, writerName, writerPhone, 
-    writeDate, level, countyScore, cityScore, provinceScore, status, processName, noticeStart, 
-    noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
-    sysUpdateTime, sysStatus
-  </sql>
-  <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from assessmanage
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.wjc.assess.entity.AssessManageExample">
-    delete from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage (id, year, city, 
-      county, province, orgCode, 
-      orgName, writerId, writerName, 
-      writerPhone, writeDate, level, 
-      countyScore, cityScore, provinceScore, 
-      status, processName, noticeStart, 
-      noticeEnd, sysCreateName, sysCreateCode, 
-      sysCreateTime, sysUpdateName, sysUpdateCode, 
-      sysUpdateTime, sysStatus)
-    values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
-      #{county,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
-      #{orgName,jdbcType=VARCHAR}, #{writerId,jdbcType=VARCHAR}, #{writerName,jdbcType=VARCHAR}, 
-      #{writerPhone,jdbcType=VARCHAR}, #{writeDate,jdbcType=TIMESTAMP}, #{level,jdbcType=VARCHAR}, 
-      #{countyScore,jdbcType=INTEGER}, #{cityScore,jdbcType=INTEGER}, #{provinceScore,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{processName,jdbcType=VARCHAR}, #{noticeStart,jdbcType=TIMESTAMP}, 
-      #{noticeEnd,jdbcType=TIMESTAMP}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
-      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
-      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage">
-    insert into assessmanage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="year != null">
-        year,
-      </if>
-      <if test="city != null">
-        city,
-      </if>
-      <if test="county != null">
-        county,
-      </if>
-      <if test="province != null">
-        province,
-      </if>
-      <if test="orgCode != null">
-        orgCode,
-      </if>
-      <if test="orgName != null">
-        orgName,
-      </if>
-      <if test="writerId != null">
-        writerId,
-      </if>
-      <if test="writerName != null">
-        writerName,
-      </if>
-      <if test="writerPhone != null">
-        writerPhone,
-      </if>
-      <if test="writeDate != null">
-        writeDate,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="countyScore != null">
-        countyScore,
-      </if>
-      <if test="cityScore != null">
-        cityScore,
-      </if>
-      <if test="provinceScore != null">
-        provinceScore,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="processName != null">
-        processName,
-      </if>
-      <if test="noticeStart != null">
-        noticeStart,
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd,
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName,
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode,
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime,
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName,
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode,
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime,
-      </if>
-      <if test="sysStatus != null">
-        sysStatus,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="year != null">
-        #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.wjc.assess.entity.AssessManageExample" resultType="java.lang.Integer">
-    select count(*) from assessmanage
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update assessmanage
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
-      </if>
-      <if test="record.year != null">
-        year = #{record.year,jdbcType=INTEGER},
-      </if>
-      <if test="record.city != null">
-        city = #{record.city,jdbcType=VARCHAR},
-      </if>
-      <if test="record.county != null">
-        county = #{record.county,jdbcType=VARCHAR},
-      </if>
-      <if test="record.province != null">
-        province = #{record.province,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgCode != null">
-        orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgName != null">
-        orgName = #{record.orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerId != null">
-        writerId = #{record.writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerName != null">
-        writerName = #{record.writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writerPhone != null">
-        writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="record.writeDate != null">
-        writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.level != null">
-        level = #{record.level,jdbcType=VARCHAR},
-      </if>
-      <if test="record.countyScore != null">
-        countyScore = #{record.countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.cityScore != null">
-        cityScore = #{record.cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.provinceScore != null">
-        provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
-      </if>
-      <if test="record.processName != null">
-        processName = #{record.processName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.noticeStart != null">
-        noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.noticeEnd != null">
-        noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysCreateName != null">
-        sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateCode != null">
-        sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysCreateTime != null">
-        sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysUpdateName != null">
-        sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateCode != null">
-        sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sysUpdateTime != null">
-        sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.sysStatus != null">
-        sysStatus = #{record.sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update assessmanage
-    set id = #{record.id,jdbcType=VARCHAR},
-      year = #{record.year,jdbcType=INTEGER},
-      city = #{record.city,jdbcType=VARCHAR},
-      county = #{record.county,jdbcType=VARCHAR},
-      province = #{record.province,jdbcType=VARCHAR},
-      orgCode = #{record.orgCode,jdbcType=VARCHAR},
-      orgName = #{record.orgName,jdbcType=VARCHAR},
-      writerId = #{record.writerId,jdbcType=VARCHAR},
-      writerName = #{record.writerName,jdbcType=VARCHAR},
-      writerPhone = #{record.writerPhone,jdbcType=VARCHAR},
-      writeDate = #{record.writeDate,jdbcType=TIMESTAMP},
-      level = #{record.level,jdbcType=VARCHAR},
-      countyScore = #{record.countyScore,jdbcType=INTEGER},
-      cityScore = #{record.cityScore,jdbcType=INTEGER},
-      provinceScore = #{record.provinceScore,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER},
-      processName = #{record.processName,jdbcType=VARCHAR},
-      noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
-      noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
-      sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
-      sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
-      sysCreateTime = #{record.sysCreateTime,jdbcType=TIMESTAMP},
-      sysUpdateName = #{record.sysUpdateName,jdbcType=VARCHAR},
-      sysUpdateCode = #{record.sysUpdateCode,jdbcType=VARCHAR},
-      sysUpdateTime = #{record.sysUpdateTime,jdbcType=TIMESTAMP},
-      sysStatus = #{record.sysStatus,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wjc.assess.entity.AssessManage">
-    update assessmanage
-    <set>
-      <if test="year != null">
-        year = #{year,jdbcType=INTEGER},
-      </if>
-      <if test="city != null">
-        city = #{city,jdbcType=VARCHAR},
-      </if>
-      <if test="county != null">
-        county = #{county,jdbcType=VARCHAR},
-      </if>
-      <if test="province != null">
-        province = #{province,jdbcType=VARCHAR},
-      </if>
-      <if test="orgCode != null">
-        orgCode = #{orgCode,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null">
-        orgName = #{orgName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerId != null">
-        writerId = #{writerId,jdbcType=VARCHAR},
-      </if>
-      <if test="writerName != null">
-        writerName = #{writerName,jdbcType=VARCHAR},
-      </if>
-      <if test="writerPhone != null">
-        writerPhone = #{writerPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="writeDate != null">
-        writeDate = #{writeDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="level != null">
-        level = #{level,jdbcType=VARCHAR},
-      </if>
-      <if test="countyScore != null">
-        countyScore = #{countyScore,jdbcType=INTEGER},
-      </if>
-      <if test="cityScore != null">
-        cityScore = #{cityScore,jdbcType=INTEGER},
-      </if>
-      <if test="provinceScore != null">
-        provinceScore = #{provinceScore,jdbcType=INTEGER},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="processName != null">
-        processName = #{processName,jdbcType=VARCHAR},
-      </if>
-      <if test="noticeStart != null">
-        noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
-      </if>
-      <if test="noticeEnd != null">
-        noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysCreateName != null">
-        sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateCode != null">
-        sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCreateTime != null">
-        sysCreateTime = #{sysCreateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysUpdateName != null">
-        sysUpdateName = #{sysUpdateName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateCode != null">
-        sysUpdateCode = #{sysUpdateCode,jdbcType=VARCHAR},
-      </if>
-      <if test="sysUpdateTime != null">
-        sysUpdateTime = #{sysUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sysStatus != null">
-        sysStatus = #{sysStatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessManage">
+  <update id="updateByPrimaryKey" parameterType="com.wjc.assess.entity.AssessManage" >
     update assessmanage
     set year = #{year,jdbcType=INTEGER},
       city = #{city,jdbcType=VARCHAR},

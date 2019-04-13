@@ -1,10 +1,10 @@
-define(['/common/js/config.js'], function () {
+define(['/hzml/common/js/config.js'], function () {
     require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
         var layer = layui.layer;
         //初始化表格
         CustomTable.init({
             elem: "#table", 
-            url: 'http://localhost:8080/api/ReportManage/getList', //数据接口   
+            url: '/hzml/api/ReportManage/getList', //数据接口
             where: $('.search-form').serializeForm(),
             // toolbar: '#tool',
             // even: true, //开启隔行背景
@@ -97,9 +97,9 @@ define(['/common/js/config.js'], function () {
         })
 
         //查看报告
-        $('tbody').on('click',".viewReport",function() {
+        $(document).on('click',".viewReport",function() {
             var addr = $(this).prev().val()
-            window.location.href = "http://localhost:8080/api/File/download?ids="+addr;
+            window.location.href = "/hzml/api/File/download?ids="+addr;
         })
 
         //启用
