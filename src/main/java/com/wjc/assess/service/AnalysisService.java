@@ -576,6 +576,7 @@ public class AnalysisService {
         if(manage.getCity()!=null && !manage.getCity().equals("")){
             criteria1.andCityEqualTo(manage.getCity());
         }
+        criteria1.andPEqualTo("p1");
         List<String> name = new ArrayList<>();
         name.add("行政村公路通畅率");
         name.add("行政村总数");
@@ -601,7 +602,524 @@ public class AnalysisService {
                     }
                 }
             }
-            situationDto.setpScore(situationDto.getpScore());
+            situationDto.setpScore(situationDto.getRate());
+        }
+        return analysisDtos;
+    }
+
+    //行政村客车通畅情况
+    public List<SituationDto> kctcqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p2");
+        List<String> name = new ArrayList<>();
+        name.add("行政村通客车率");
+        name.add("行政村总数");
+        name.add("其中：通客运车辆行政村数量");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("行政村通客车率")){
+                        situationDto.setRate(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("行政村总数")){
+                        situationDto.setName1(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("其中：通客运车辆行政村数量")){
+                        situationDto.setName2(assessScore.getProvinceScore());
+                    }
+                }
+            }
+            situationDto.setpScore(situationDto.getRate()*200/100);
+        }
+        return analysisDtos;
+    }
+
+    //城乡客运公交化情况
+    public List<SituationDto> kcgjhqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p3");
+        List<String> name = new ArrayList<>();
+        name.add("城乡道路客运车辆公交化比率");
+        name.add("城乡道路客运车辆数");
+        name.add("其中：城市公交车辆数");
+        name.add("其中：公交化运营的农村客运车辆数");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("城乡道路客运车辆公交化比率")){
+                        situationDto.setRate(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("城乡道路客运车辆数")){
+                        situationDto.setName1(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("其中：城市公交车辆数")){
+                        situationDto.setName2(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("其中：公交化运营的农村客运车辆数")){
+                        situationDto.setName3(assessScore.getProvinceScore());
+                    }
+                }
+            }
+            situationDto.setpScore(situationDto.getRate()*150/100);
+        }
+        return analysisDtos;
+    }
+
+    //城乡客运交通事故死亡情况
+    public List<SituationDto> kyjqsgqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p4");
+        List<String> name = new ArrayList<>();
+        name.add("城乡道路客运车辆交通责任事故万车死亡率");
+        name.add("城乡道路客运车辆交通责任事故死亡人数");
+        name.add("城乡道路客运车辆数");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("城乡道路客运车辆交通责任事故万车死亡率")){
+                        situationDto.setRate(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("城乡道路客运车辆交通责任事故死亡人数")){
+                        situationDto.setName1(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("城乡道路客运车辆数")){
+                        situationDto.setName2(assessScore.getProvinceScore());
+                    }
+                }
+            }
+            situationDto.setpScore(100-situationDto.getRate());
+        }
+        return analysisDtos;
+    }
+
+    //城乡客运基础设施情况
+    public List<SituationDto> kyjcssqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p5");
+        List<String> name = new ArrayList<>();
+        name.add("新建、改扩建农村公路项目数");
+        name.add("其中：与农村客运站点同步设计、建设、交付使用的项目数");
+        name.add("行政村总数");
+        name.add("其中：2公里范围内建成了农村客运站点的行政村数");
+        name.add("等级三级以上道路客运站场数");
+        name.add("其中：与城市公交站点的换乘距离小于300m的站场数");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            int p1=0,p2=0,p3=0,p4=0,p5=0,p6=0;
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("新建、改扩建农村公路项目数")){
+                        p1 = assessScore.getProvinceScore();
+                    }
+                    if(assessScore.getName().equals("其中：与农村客运站点同步设计、建设、交付使用的项目数")){
+                        p2 = assessScore.getProvinceScore();
+                    }
+                    if(assessScore.getName().equals("行政村总数")){
+                        p3 = assessScore.getProvinceScore();
+                    }
+                    if(assessScore.getName().equals("其中：2公里范围内建成了农村客运站点的行政村数")){
+                        p4 = assessScore.getProvinceScore();
+                    }
+                    if(assessScore.getName().equals("等级三级以上道路客运站场数")){
+                        p5 = assessScore.getProvinceScore();
+                    }
+                    if(assessScore.getName().equals("其中：与城市公交站点的换乘距离小于300m的站场数")){
+                        p6 = assessScore.getProvinceScore();
+                    }
+                }
+            }
+            int sum = p2*50/p1 + p4*50/p3 + p6*50/p5;
+            situationDto.setRate(sum*100/150);
+            situationDto.setpScore(sum);
+        }
+        return analysisDtos;
+    }
+
+    //城乡客运信息服务情况
+    public List<SituationDto> kyxxfwqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p6");
+        List<String> name = new ArrayList<>();
+        name.add("城乡道路客运信息是否通过互联网对外动态发布");
+        name.add("等级三级以上道路客运站是否公布可换乘的城市公交线路信息");
+        name.add("是否开通了统一的交通运输服务监督电话，并保持良好运转");
+        name.add("是否全面实现道路客运联网售票或网络售票");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            int sum=0;
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("城乡道路客运信息是否通过互联网对外动态发布")){
+                        sum += assessScore.getProvinceScore()==1? 30 : 0;
+                    }
+                    if(assessScore.getName().equals("等级三级以上道路客运站是否公布可换乘的城市公交线路信息")){
+                        sum += assessScore.getProvinceScore()==1? 30 : 0;
+                    }
+                    if(assessScore.getName().equals("是否开通了统一的交通运输服务监督电话，并保持良好运转")){
+                        sum += assessScore.getProvinceScore()==1? 40 : 0;
+                    }
+                    if(assessScore.getName().equals("是否全面实现道路客运联网售票或网络售票")){
+                        sum += assessScore.getProvinceScore()==1? 50 : 0;
+                    }
+                }
+            }
+            situationDto.setRate(sum*100/150);
+            situationDto.setpScore(sum);
+        }
+        return analysisDtos;
+    }
+
+    //城乡客运发展政策情况
+    public List<SituationDto> kyfzzcqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村客车通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        criteria1.andPEqualTo("p7");
+        List<String> name = new ArrayList<>();
+        name.add("市县级行政区域是否建立了“一城一交”的综合交通管理体制和城乡道路客运一体化多部门联合推进机制");
+        name.add("市县级人民政府是否编制了市县级行政区城乡道路客运一体化发展规划及场站专项规划，主要指标纳入城乡规划统筹实施");
+        name.add("市县级人民政府是否统一了公交化运行的农村客运与城市公交在税费、财政补贴等方面的政策");
+        name.add("市县级人民政府是否出台了支持城乡道路客运一体化发展的政策");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            int sum=0;
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("市县级行政区域是否建立了“一城一交”的综合交通管理体制和城乡道路客运一体化多部门联合推进机制")){
+                        sum += assessScore.getProvinceScore()==1? 30 : 0;
+                    }
+                    if(assessScore.getName().equals("市县级人民政府是否编制了市县级行政区城乡道路客运一体化发展规划及场站专项规划，主要指标纳入城乡规划统筹实施")){
+                        sum += assessScore.getProvinceScore()==1? 30 : 0;
+                    }
+                    if(assessScore.getName().equals("市县级人民政府是否统一了公交化运行的农村客运与城市公交在税费、财政补贴等方面的政策")){
+                        sum += assessScore.getProvinceScore()==1? 40 : 0;
+                    }
+                    if(assessScore.getName().equals("市县级人民政府是否出台了支持城乡道路客运一体化发展的政策")){
+                        sum += assessScore.getProvinceScore()==1? 50 : 0;
+                    }
+                }
+            }
+            situationDto.setRate(sum*100/150);
+            situationDto.setpScore(sum);
         }
         return analysisDtos;
     }

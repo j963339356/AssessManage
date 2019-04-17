@@ -80,7 +80,7 @@ public class AnalysisController extends BaseController{
     }
 
     @PostMapping("/gltcqk")
-    //公路通畅情况
+    //行政村公路通畅情况
     public Object gltcqk(HttpServletRequest httpServletRequest){
         //获取请求对象
         CommonRequest request = getCommonRequest(httpServletRequest);
@@ -88,6 +88,84 @@ public class AnalysisController extends BaseController{
 
         AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
         List<SituationDto> result = analysisService.gltcqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kctcqk")
+    //行政村客车通畅情况
+    public Object kctcqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kctcqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kcgjhqk")
+    //城乡客运公交化情况
+    public Object kcgjhqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kcgjhqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kyjqsgqk")
+    //城乡客运交通事故死亡情况
+    public Object kyjqsgqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kyjqsgqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kyjcssqk")
+    //城乡客运基础设施情况
+    public Object kyjcssqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kyjcssqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kyxxfwqk")
+    //城乡客运信息服务情况
+    public Object kyxxfwqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kyxxfwqk(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/kyfzzcqk")
+    //城乡客运发展政策情况
+    public Object kyfzzcqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.kyfzzcqk(manage,user);
         ReturnList returnlist = new ReturnList(result.size(),result);
         return MessageHelp.Result(returnlist);
     }

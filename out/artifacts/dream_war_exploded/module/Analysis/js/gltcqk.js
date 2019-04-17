@@ -73,6 +73,11 @@ define(['/hzml/common/js/config.js'], function () {
                     }
                 }
                 option = {
+                    title: {
+                        text: '行政村公路通畅情况',
+                        subtext: '',
+                        x: 'center'
+                    },
                     legend: {
                         type: 'scroll',
                         left: 90,
@@ -88,7 +93,8 @@ define(['/hzml/common/js/config.js'], function () {
                     },
                     yAxis: {
                         name: '百分比',
-                        type: 'value'
+                        type: 'value',
+                        max: 100
                     },
                     series: [{
                         name:"2018",
