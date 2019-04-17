@@ -1,5 +1,8 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'common', 'helper', 'layui','customtable'], function ($) {
+    require(['jquery', 'common', 'helper', 'layui','customtable','nav'], function ($) {
+        /**
+         * 总体情况
+         */
         var form = layui.form;
         var user = Helper.GetUser();
         // 基于准备好的dom，初始化echarts实例
@@ -7,6 +10,7 @@ define(['/hzml/common/js/config.js'], function () {
         var barChart = echarts.init(document.getElementById('bar'));
 
         //给市赋值
+        $.ajaxSettings.async = false;   //同步调用
         $.getJSON("/hzml/module/manage/js/cityJson.json", "", function (data) {
             var html = '';
             for (var i = 0; i < data.length; i++) {
@@ -23,6 +27,7 @@ define(['/hzml/common/js/config.js'], function () {
             }
             form.render('select');        
         })
+        $.ajaxSettings.async = true;   //同步调用
 
         //获取数据
         $("#query").click(function () {

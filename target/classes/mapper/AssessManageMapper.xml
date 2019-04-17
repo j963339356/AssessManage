@@ -18,6 +18,7 @@
     <result column="cityScore" property="cityScore" jdbcType="INTEGER" />
     <result column="provinceScore" property="provinceScore" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="backReson" property="backReson" jdbcType="VARCHAR" />
     <result column="processName" property="processName" jdbcType="VARCHAR" />
     <result column="noticeStart" property="noticeStart" jdbcType="TIMESTAMP" />
     <result column="noticeEnd" property="noticeEnd" jdbcType="TIMESTAMP" />
@@ -89,9 +90,9 @@
   </sql>
   <sql id="Base_Column_List" >
     id, year, city, county, province, orgCode, orgName, writerId, writerName, writerPhone, 
-    writeDate, level, countyScore, cityScore, provinceScore, status, processName, noticeStart, 
-    noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, sysUpdateCode, 
-    sysUpdateTime, sysStatus
+    writeDate, level, countyScore, cityScore, provinceScore, status, backReson, processName, 
+    noticeStart, noticeEnd, sysCreateName, sysCreateCode, sysCreateTime, sysUpdateName, 
+    sysUpdateCode, sysUpdateTime, sysStatus
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wjc.assess.entity.AssessManageExample" >
     select
@@ -129,19 +130,21 @@
       orgName, writerId, writerName, 
       writerPhone, writeDate, level, 
       countyScore, cityScore, provinceScore, 
-      status, processName, noticeStart, 
-      noticeEnd, sysCreateName, sysCreateCode, 
-      sysCreateTime, sysUpdateName, sysUpdateCode, 
-      sysUpdateTime, sysStatus)
+      status, backReson, processName, 
+      noticeStart, noticeEnd, sysCreateName, 
+      sysCreateCode, sysCreateTime, sysUpdateName, 
+      sysUpdateCode, sysUpdateTime, sysStatus
+      )
     values (#{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
       #{county,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
       #{orgName,jdbcType=VARCHAR}, #{writerId,jdbcType=VARCHAR}, #{writerName,jdbcType=VARCHAR}, 
       #{writerPhone,jdbcType=VARCHAR}, #{writeDate,jdbcType=TIMESTAMP}, #{level,jdbcType=VARCHAR}, 
       #{countyScore,jdbcType=INTEGER}, #{cityScore,jdbcType=INTEGER}, #{provinceScore,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{processName,jdbcType=VARCHAR}, #{noticeStart,jdbcType=TIMESTAMP}, 
-      #{noticeEnd,jdbcType=TIMESTAMP}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
-      #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
-      #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
+      #{status,jdbcType=INTEGER}, #{backReson,jdbcType=VARCHAR}, #{processName,jdbcType=VARCHAR}, 
+      #{noticeStart,jdbcType=TIMESTAMP}, #{noticeEnd,jdbcType=TIMESTAMP}, #{sysCreateName,jdbcType=VARCHAR}, 
+      #{sysCreateCode,jdbcType=VARCHAR}, #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, 
+      #{sysUpdateCode,jdbcType=VARCHAR}, #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.wjc.assess.entity.AssessManage" >
     insert into assessmanage
@@ -193,6 +196,9 @@
       </if>
       <if test="status != null" >
         status,
+      </if>
+      <if test="backReson != null" >
+        backReson,
       </if>
       <if test="processName != null" >
         processName,
@@ -273,6 +279,9 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="backReson != null" >
+        #{backReson,jdbcType=VARCHAR},
       </if>
       <if test="processName != null" >
         #{processName,jdbcType=VARCHAR},
@@ -363,6 +372,9 @@
       <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.backReson != null" >
+        backReson = #{record.backReson,jdbcType=VARCHAR},
+      </if>
       <if test="record.processName != null" >
         processName = #{record.processName,jdbcType=VARCHAR},
       </if>
@@ -416,6 +428,7 @@
       cityScore = #{record.cityScore,jdbcType=INTEGER},
       provinceScore = #{record.provinceScore,jdbcType=INTEGER},
       status = #{record.status,jdbcType=INTEGER},
+      backReson = #{record.backReson,jdbcType=VARCHAR},
       processName = #{record.processName,jdbcType=VARCHAR},
       noticeStart = #{record.noticeStart,jdbcType=TIMESTAMP},
       noticeEnd = #{record.noticeEnd,jdbcType=TIMESTAMP},
@@ -478,6 +491,9 @@
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="backReson != null" >
+        backReson = #{backReson,jdbcType=VARCHAR},
+      </if>
       <if test="processName != null" >
         processName = #{processName,jdbcType=VARCHAR},
       </if>
@@ -528,6 +544,7 @@
       cityScore = #{cityScore,jdbcType=INTEGER},
       provinceScore = #{provinceScore,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},
+      backReson = #{backReson,jdbcType=VARCHAR},
       processName = #{processName,jdbcType=VARCHAR},
       noticeStart = #{noticeStart,jdbcType=TIMESTAMP},
       noticeEnd = #{noticeEnd,jdbcType=TIMESTAMP},

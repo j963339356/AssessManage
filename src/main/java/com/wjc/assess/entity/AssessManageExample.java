@@ -1165,6 +1165,76 @@ public class AssessManageExample {
             return (Criteria) this;
         }
 
+        public Criteria andBackResonIsNull() {
+            addCriterion("backReson is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonIsNotNull() {
+            addCriterion("backReson is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonEqualTo(String value) {
+            addCriterion("backReson =", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonNotEqualTo(String value) {
+            addCriterion("backReson <>", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonGreaterThan(String value) {
+            addCriterion("backReson >", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonGreaterThanOrEqualTo(String value) {
+            addCriterion("backReson >=", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonLessThan(String value) {
+            addCriterion("backReson <", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonLessThanOrEqualTo(String value) {
+            addCriterion("backReson <=", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonLike(String value) {
+            addCriterion("backReson like", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonNotLike(String value) {
+            addCriterion("backReson not like", value, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonIn(List<String> values) {
+            addCriterion("backReson in", values, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonNotIn(List<String> values) {
+            addCriterion("backReson not in", values, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonBetween(String value1, String value2) {
+            addCriterion("backReson between", value1, value2, "backReson");
+            return (Criteria) this;
+        }
+
+        public Criteria andBackResonNotBetween(String value1, String value2) {
+            addCriterion("backReson not between", value1, value2, "backReson");
+            return (Criteria) this;
+        }
+
         public Criteria andProcessNameIsNull() {
             addCriterion("processName is null");
             return (Criteria) this;

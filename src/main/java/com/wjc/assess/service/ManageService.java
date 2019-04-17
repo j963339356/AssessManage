@@ -111,6 +111,7 @@ public class ManageService {
         AssessManageExample.Criteria criteria = example.createCriteria();
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());  //年度
+        criteria.andNoticeEndLessThanOrEqualTo(new Date());  //小于当前时间
         example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
 
         if(manage.getCity()!=null && !manage.getCity().equals("")){ //辖区市
@@ -247,6 +248,7 @@ public class ManageService {
         //考核管理
         AssessManage assessManage = new AssessManage();
         assessManage.setStatus(5);  //市级核定
+        assessManage.setBackReson("");
         assessManage.setCounty(manageDto.getCounty());
         assessManage.setCity(manageDto.getCity());
         assessManage.setCountyScore(manageDto.getCountyScore());
@@ -271,6 +273,7 @@ public class ManageService {
         }
         AssessManage assessManage = new AssessManage();
         assessManage.setStatus(6);  //市级核定
+        assessManage.setBackReson("");
         assessManage.setProcessName("城乡客运发展考核市级上报流程");
         assessManage.setOrgCode(user.getOrgCode().toString());
         assessManage.setOrgName(user.getOrgName());
@@ -324,6 +327,7 @@ public class ManageService {
         //考核管理
         AssessManage assessManage = new AssessManage();
         assessManage.setStatus(1);  //市级待公示
+        assessManage.setProcessName("市级核定流程");
         assessManage.setCityScore(manageDto.getCityScore());
         assessManage.setCounty(manageDto.getCounty());
         assessManage.setCity(manageDto.getCity());
@@ -366,26 +370,55 @@ public class ManageService {
     }
 
     //市级退回
-    public void cityBack(String id,User user){
-        AssessManage assessManage = new AssessManage();
-        assessManage.setId(id);
+    public void cityBack(AssessManage manage,User user){
+        AssessManage assessManage = manageDao.selectByPrimaryKey(manage.getId());
+        assessManage.setBackReson(manage.getBackReson());
+        assessManage.setProcessName("市级退回流程");
         assessManage.setStatus(7);
+        assessManage.setCityScore(null);
         assessManage.setSysUpdateCode(user.getOrgCode().toString());
         assessManage.setSysUpdateName(user.getName());
         assessManage.setSysUpdateTime(new Date());
-        manageDao.updateByPrimaryKeySelective(assessManage);
+        manageDao.updateByPrimaryKey(assessManage);
+        //考核分数
+        AssessScoreExample example = new AssessScoreExample();
+        example.or().andCityEqualTo(assessManage.getCity())
+                .andCountyEqualTo(assessManage.getCounty());
+        List<AssessScore> list = scoreDao.selectByExample(example);
+        for(int i=0; i<list.size(); i++){
+            AssessScore assessScore = list.get(i);
+            assessScore.setCityScore(null);
+            assessScore.setSysUpdateCode(user.getOrgCode().toString());
+            assessScore.setSysUpdateName(user.getName());
+            assessScore.setSysUpdateTime(new Date());
+            scoreDao.updateByPrimaryKey(assessScore);
+        }
     }
 
     //省级退回
-    public void provinceBack(String id,User user){
-        AssessManage assessManage = new AssessManage();
-        assessManage.setId(id);
+    public void provinceBack(AssessManage manage,User user){
+        AssessManage assessManage = manageDao.selectByPrimaryKey(manage.getId());
+        assessManage.setBackReson(manage.getBackReson());
         assessManage.setProcessName("省级退回流程");
         assessManage.setStatus(8);
+        assessManage.setProvinceScore(null);
         assessManage.setSysUpdateCode(user.getOrgCode().toString());
         assessManage.setSysUpdateName(user.getName());
         assessManage.setSysUpdateTime(new Date());
-        manageDao.updateByPrimaryKeySelective(assessManage);
+        manageDao.updateByPrimaryKey(assessManage);
+        //考核分数
+        AssessScoreExample example = new AssessScoreExample();
+        example.or().andCityEqualTo(assessManage.getCity())
+                .andCountyEqualTo(assessManage.getCounty());
+        List<AssessScore> list = scoreDao.selectByExample(example);
+        for(int i=0; i<list.size(); i++){
+            AssessScore assessScore = list.get(i);
+            assessScore.setCityScore(null);
+            assessScore.setSysUpdateCode(user.getOrgCode().toString());
+            assessScore.setSysUpdateName(user.getName());
+            assessScore.setSysUpdateTime(new Date());
+            scoreDao.updateByPrimaryKey(assessScore);
+        }
     }
 
     //更新考核管理

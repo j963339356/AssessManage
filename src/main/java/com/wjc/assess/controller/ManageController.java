@@ -191,8 +191,8 @@ public class ManageController extends BaseController{
         CommonRequest request = getCommonRequest(httpServletRequest);
         User user = getUser(httpServletRequest);
 
-        String id = request.getBody().toString();
-        manageService.cityBack(id,user);
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        manageService.cityBack(manage,user);
         return MessageHelp.Result(true);
     }
 
@@ -203,8 +203,8 @@ public class ManageController extends BaseController{
         CommonRequest request = getCommonRequest(httpServletRequest);
         User user = getUser(httpServletRequest);
 
-        String id = request.getBody().toString();
-        manageService.provinceBack(id,user);
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        manageService.provinceBack(manage,user);
         return MessageHelp.Result(true);
     }
 }

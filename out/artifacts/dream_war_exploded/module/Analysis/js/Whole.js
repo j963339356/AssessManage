@@ -1,5 +1,8 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'common', 'helper', 'layui','customtable'], function ($) {
+    require(['jquery', 'common', 'helper', 'layui','customtable','nav'], function ($) {
+        /**
+         * 总体情况
+         */
         var form = layui.form;
         var user = Helper.GetUser();
         // 基于准备好的dom，初始化echarts实例

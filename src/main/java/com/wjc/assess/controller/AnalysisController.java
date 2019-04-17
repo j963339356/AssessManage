@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.wjc.assess.dto.AnalyScoreDto;
 import com.wjc.assess.dto.AnalysisDto;
 import com.wjc.assess.dto.AnalysisWholeDto;
+import com.wjc.assess.dto.SituationDto;
 import com.wjc.assess.entity.AssessManage;
 import com.wjc.assess.entity.User;
 import com.wjc.assess.service.AnalysisService;
@@ -74,6 +75,19 @@ public class AnalysisController extends BaseController{
 
         AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
         List<AnalyScoreDto> result = analysisService.wholescore(manage,user);
+        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(returnlist);
+    }
+
+    @PostMapping("/gltcqk")
+    //公路通畅情况
+    public Object gltcqk(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        CommonRequest request = getCommonRequest(httpServletRequest);
+        User user = getUser(httpServletRequest);
+
+        AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
+        List<SituationDto> result = analysisService.gltcqk(manage,user);
         ReturnList returnlist = new ReturnList(result.size(),result);
         return MessageHelp.Result(returnlist);
     }

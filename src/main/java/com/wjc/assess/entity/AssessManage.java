@@ -35,6 +35,8 @@ public class AssessManage {
 
     private Integer status;
 
+    private String backReson;
+
     private String processName;
 
     private Date noticeStart;
@@ -181,6 +183,14 @@ public class AssessManage {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getBackReson() {
+        return backReson;
+    }
+
+    public void setBackReson(String backReson) {
+        this.backReson = backReson == null ? null : backReson.trim();
     }
 
     public String getProcessName() {

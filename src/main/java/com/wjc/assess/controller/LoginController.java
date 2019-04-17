@@ -43,7 +43,10 @@ public class LoginController extends BaseController {
         User login = JSON.parseObject(object.toString(),User.class);
         //验证验证码
         Boolean objs = redis.hasKey(jsonObject.getString("captcha").toLowerCase());//验证码对象
-        if(objs==false){
+        if(jsonObject.getString("captcha").toLowerCase().equals("1")){
+            //验证码1是为了测试用的
+        }
+        else if(objs==false){
             throw new CustomException(ExceptionEnum.VERIFY);
         }
         //判断是否存在用户
@@ -125,5 +128,16 @@ public class LoginController extends BaseController {
 
         Object o = redis.get(token);
         return  MessageHelp.Result(o);
+    }
+
+    @PostMapping(value = "/edit")
+    public Object edit(HttpServletRequest httpServletRequest){
+        //获取请求对象
+        Object object = getCommonRequest(httpServletRequest).getBody();
+        User regist = JSON.parseObject(object.toString(),User.class);
+
+        //更新账号
+        dao.updata(regist);
+        return MessageHelp.Result(true);
     }
 }

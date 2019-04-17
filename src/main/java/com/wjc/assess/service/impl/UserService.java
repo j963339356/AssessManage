@@ -65,7 +65,8 @@ public class UserService implements TestInterface {
 
     @Override
     public void updata(User account) {
-
+        UserExample example = new UserExample();
+        accountMapper.updateByPrimaryKeySelective(account);
     }
 
     //获取单个用户
@@ -76,9 +77,6 @@ public class UserService implements TestInterface {
 
     @Override
     public ReturnList getList(User account,int page,int size) {
-        //分页
-        PageHelper.startPage(page,size);
-
         UserExample example = new UserExample();
         //每一个Criteria对象相当于“或”
         UserExample.Criteria criteria = example.createCriteria();
@@ -92,6 +90,8 @@ public class UserService implements TestInterface {
         }
 
         int count = accountMapper.countByExample(example);
+        //分页
+        PageHelper.startPage(page,size);
         List<User> list = accountMapper.selectByExample(example);
         ReturnList result = new ReturnList(count,list);
         return result;

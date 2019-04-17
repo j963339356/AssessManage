@@ -5,6 +5,7 @@ import com.wjc.assess.dao.AssessScoreMapper;
 import com.wjc.assess.dto.AnalyScoreDto;
 import com.wjc.assess.dto.AnalysisDto;
 import com.wjc.assess.dto.AnalysisWholeDto;
+import com.wjc.assess.dto.SituationDto;
 import com.wjc.assess.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class AnalysisService {
         AssessManageExample.Criteria criteria = example.createCriteria();
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);  //必须有省级成绩，并且已公示的
         criteria.andProvinceEqualTo(manage.getProvince());
         example.setOrderByClause("'city' asc");
 
@@ -79,6 +81,7 @@ public class AnalysisService {
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());
         criteria.andProvinceEqualTo(user.getProvince());
+        criteria.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
 
         List<AssessScore> list = scoreDao.selectByExample(example);
 
@@ -121,10 +124,10 @@ public class AnalysisService {
                     analyScoreDto.setP1(assessScore.getProvinceScore());
                 }
                 if(assessScore.getP().equals("p2") && assessScore.getLevel()==1){
-                    analyScoreDto.setP2(assessScore.getProvinceScore());
+                    analyScoreDto.setP2(assessScore.getProvinceScore()*200/100);
                 }
                 if(assessScore.getP().equals("p3") && assessScore.getLevel()==1){
-                    analyScoreDto.setP3(assessScore.getProvinceScore());
+                    analyScoreDto.setP3(assessScore.getProvinceScore()*150/100);
                 }
                 if(assessScore.getP().equals("p4") && assessScore.getLevel()==1){
                     analyScoreDto.setP4(100-assessScore.getProvinceScore());
@@ -268,6 +271,7 @@ public class AnalysisService {
         AssessManageExample.Criteria criteria = example.createCriteria();
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
         if(manage.getProvince()!=null && !manage.getProvince().equals("")){
             criteria.andProvinceEqualTo(manage.getProvince());
         }
@@ -291,6 +295,7 @@ public class AnalysisService {
         AssessScoreExample.Criteria criteria1 = example1.createCriteria();
         criteria1.andSysStatusEqualTo(1);
         criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
         if(manage.getProvince()!=null && !manage.getProvince().equals("")){
             criteria1.andProvinceEqualTo(manage.getProvince());
         }
@@ -353,6 +358,7 @@ public class AnalysisService {
         criteria.andSysStatusEqualTo(1);
         criteria.andYearEqualTo(manage.getYear());
         criteria.andProvinceEqualTo(user.getProvince());
+        criteria.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
         if(manage.getCity()!=null && !manage.getCity().equals("")){
             criteria.andCityEqualTo(manage.getCity());
         }
@@ -399,10 +405,10 @@ public class AnalysisService {
                     analyScoreDto.setP1(assessScore.getProvinceScore());
                 }
                 if (assessScore.getP().equals("p2") && assessScore.getLevel() == 1) {
-                    analyScoreDto.setP2(assessScore.getProvinceScore());
+                    analyScoreDto.setP2(assessScore.getProvinceScore()*200/100);
                 }
                 if (assessScore.getP().equals("p3") && assessScore.getLevel() == 1) {
-                    analyScoreDto.setP3(assessScore.getProvinceScore());
+                    analyScoreDto.setP3(assessScore.getProvinceScore()*150/100);
                 }
                 if (assessScore.getP().equals("p4") && assessScore.getLevel() == 1) {
                     analyScoreDto.setP4(100 - assessScore.getProvinceScore());
@@ -508,7 +514,7 @@ public class AnalysisService {
                 analyScoreDto.setLevel("AAAAA");
             }else if (sum>=800 && sum<900){
                 analyScoreDto.setLevel("AAAA");
-            }else if (sum>=600 && sum<800){
+            }else if (sum>=700 && sum<800){
                 analyScoreDto.setLevel("AAA");
             }else if (sum>=600 && sum<700){
                 analyScoreDto.setLevel("AA");
@@ -518,5 +524,85 @@ public class AnalysisService {
             countyResult.add(analyScoreDto);
         }
         return countyResult;
+    }
+
+    //行政村公路通畅情况
+    public List<SituationDto> gltcqk(AssessManage manage, User user){
+        AssessManageExample example = new AssessManageExample();
+        AssessManageExample.Criteria criteria = example.createCriteria();
+        criteria.andSysStatusEqualTo(1);
+        criteria.andYearEqualTo(manage.getYear());
+        criteria.andStatusEqualTo(4);   //省级已公示
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria.andCityEqualTo(manage.getCity());
+        }
+        example.setOrderByClause("'city' asc");
+        List<AssessManage> list = manageDao.selectByExample(example);
+
+        //各个县的成绩
+        List<SituationDto> analysisDtos = new ArrayList<>();
+        for (int i=0; i<list.size(); i++){
+            SituationDto asdto = new SituationDto();
+            asdto.setCity(list.get(i).getCity());
+            asdto.setCounty(list.get(i).getCounty());
+            asdto.setScore(list.get(i).getProvinceScore());
+            int sum = list.get(i).getProvinceScore();
+            if(sum>900) {
+                asdto.setLevel("AAAAA");
+            }else if (sum>=800 && sum<900){
+                asdto.setLevel("AAAA");
+            }else if (sum>=700 && sum<800){
+                asdto.setLevel("AAA");
+            }else if (sum>=600 && sum<700){
+                asdto.setLevel("AA");
+            }else if (sum<500){
+                asdto.setLevel("A");
+            }
+            analysisDtos.add(asdto);
+        }
+
+        //行政村公路通畅率
+        AssessScoreExample example1 = new AssessScoreExample();
+        AssessScoreExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andSysStatusEqualTo(1);
+        criteria1.andYearEqualTo(manage.getYear());
+        criteria1.andProvinceScoreIsNotNull();  //必须有省级成绩，并且已公示的
+        if(manage.getProvince()!=null && !manage.getProvince().equals("")){
+            criteria1.andProvinceEqualTo(manage.getProvince());
+        }
+        if(manage.getCity()!=null && !manage.getCity().equals("")){
+            criteria1.andCityEqualTo(manage.getCity());
+        }
+        List<String> name = new ArrayList<>();
+        name.add("行政村公路通畅率");
+        name.add("行政村总数");
+        name.add("其中：已通路行政村数量");
+        criteria1.andNameIn(name);
+        example1.setOrderByClause("'city' asc");
+        List<AssessScore> assessScoreList = scoreDao.selectByExample(example1);
+
+        //赋值
+        for(int i=0; i<analysisDtos.size(); i++){
+            SituationDto situationDto = analysisDtos.get(i);
+            for(int j=0; j<assessScoreList.size(); j++){
+                AssessScore assessScore = assessScoreList.get(j);
+                if(situationDto.getCounty().equals(assessScore.getCounty())){   //如果是同一个县
+                    if(assessScore.getName().equals("行政村公路通畅率")){
+                        situationDto.setRate(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("行政村总数")){
+                        situationDto.setName1(assessScore.getProvinceScore());
+                    }
+                    if(assessScore.getName().equals("其中：已通路行政村数量")){
+                        situationDto.setName2(assessScore.getProvinceScore());
+                    }
+                }
+            }
+            situationDto.setpScore(situationDto.getpScore());
+        }
+        return analysisDtos;
     }
 }

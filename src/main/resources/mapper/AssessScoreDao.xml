@@ -35,7 +35,7 @@
 
     <sql id="Example_Where_Clause" >
         <where >
-            <foreach collection="oredCriteria" item="criteria" separator="or" >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
                 <if test="criteria.valid" >
                     <trim prefix="(" suffix=")" prefixOverrides="and" >
                         <foreach collection="criteria.criteria" item="criterion" >
@@ -66,24 +66,21 @@
     <select id="countByExample" parameterType="com.wjc.assess.entity.AssessScoreExample" resultType="java.lang.Integer" >
         select count(*) from (select count(*) from assessscore
         <if test="_parameter != null" >
-            <include refid="Example_Where_Clause" />
+            <include refid="com.wjc.assess.dao.AssessScoreMapper.Example_Where_Clause" />
         </if>
         group by name)a
     </select>
 
-    <select id="selectByExample" parameterType="com.wjc.assess.entity.AssessScoreExample" resultMap="com.wjc.assess.dao.AssessScoreDao.BaseResultMap">
+    <select id="selectByExample" parameterType="map" resultMap="com.wjc.assess.dao.AssessScoreMapper.BaseResultMap">
         select
-        <if test="distinct" >
-            distinct
-        </if>
-        <include refid="Base_Column_List" />
+        <include refid="com.wjc.assess.dao.AssessScoreMapper.Base_Column_List" />
         from assessscore
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
-        <if test="orderByClause != null" >
-            order by ${orderByClause}
+        <if test="example.orderByClause != null" >
+            order by ${example.orderByClause}
         </if>
-        group by name
+        group by name limit ${page},${size}
     </select>
 </mapper>

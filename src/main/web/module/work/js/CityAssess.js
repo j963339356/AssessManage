@@ -14,6 +14,14 @@ define(['/hzml/common/js/config.js'], function () {
         });
         $("#id").val(preSelect.id);
 
+        //退回原因
+        $("#form2 input[name]").each(function (i,item) {
+            var data = preSelect;
+            if($(item).attr("name")=='backReson'){
+                $(item).val(preSelect.backReson);
+            }
+        })
+
         //提交
         $("#save").click(function(){
             //把countyScore改成cityScore
@@ -31,21 +39,23 @@ define(['/hzml/common/js/config.js'], function () {
             console.log(body2)
             Helper.Ajax("Manage/cityAssess",body2,function(result){
                 if(result.response.staticCode == 0){
-                    layer.msg("上报成功", {time: 1000 },function(){
+                    layer.msg("核定成功", {time: 1000 },function(){
                         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
                         parent.layer.close(index); //再执行关闭
                     });                    
                     parent.window.$("#query").click();  
                 }
                 else{
-                    layer.msg("上报失败", {time: 1000 });
+                    layer.msg("核定失败", {time: 1000 });
                 } 
             })    
         });
 
         //退回
         $("#back").click(function(){
-            Helper.Ajax("Manage/cityBack",preSelect.id,function(result){
+            var body = $("#form2").serializeForm();
+            body.id = preSelect.id
+            Helper.Ajax("Manage/cityBack", body,function(result){
                 if(result.response.staticCode == 0){
                     layer.msg("操作成功", {time: 1000 },function(){
                         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
@@ -145,9 +155,9 @@ define(['/hzml/common/js/config.js'], function () {
 
         //填充表格(input)
         function fill(data) {
-            $("#table1 tr").each(function (i, item) {
+            $("#table1 tr").each(function (j, item) {
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].name == $(item).find("label[name='name']").text() || data[i].p == $(item).find("label[name='p']").val()) {
+                    if (data[i].name == $(item).find("label[name='name']").text() && data[i].p == $(item).find("input[name='p']").val()) {
                         $(item).find("input[name='countyScore']").val(data[i].countyScore);
                     }
                 }

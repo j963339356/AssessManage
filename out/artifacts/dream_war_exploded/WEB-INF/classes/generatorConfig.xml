@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/CXDLKYYTHXT?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;autoReconnect=true&amp;failOverReadOnly=false"
+                        connectionURL="jdbc:mysql://localhost:3306/bysj?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;autoReconnect=true&amp;failOverReadOnly=false"
                         userId="root"
                         password="1">
         </jdbcConnection>
@@ -51,20 +51,20 @@
 
         <!-- 指定数据库表 -->
         <!-- 账户,只包含ID、用户名、密码 -->
-        <table tableName="user" domainObjectName="User" >
-			<property name="useActualColumnNames" value="true"/>
-		</table>
+        <!--<table tableName="user" domainObjectName="User" >-->
+			<!--<property name="useActualColumnNames" value="true"/>-->
+		<!--</table>-->
         <!-- 用户详细信息，包括姓名什么的，不包含用户名、密码 -->
-        <table tableName="AssessTargetManage" domainObjectName="AssessTargetManage" >
+        <table tableName="assesstargetmanage" domainObjectName="AssessTargetManage" >
 			<property name="useActualColumnNames" value="true"/>
 		</table>
-        <table tableName="AssessManage" domainObjectName="AssessManage">
+        <table tableName="assessmanage" domainObjectName="AssessManage">
             <property name="useActualColumnNames" value="true"/>
         </table>
-        <table tableName="AssessScore" domainObjectName="AssessScore">
+        <table tableName="assessscore" domainObjectName="AssessScore">
             <property name="useActualColumnNames" value="true"/>
         </table>
-        <table tableName="evaluateReportManage" domainObjectName="EvaluateReportManage">
+        <table tableName="evaluatereportmanage" domainObjectName="EvaluateReportManage">
             <property name="useActualColumnNames" value="true"/>
         </table>
 

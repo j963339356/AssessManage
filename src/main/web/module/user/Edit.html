@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/hzml/common/js/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/hzml/common/css/common.css">
+
+    <title></title>
+</head>
+
+<body>
+
+
+<div class="layui-tab layui-tab-brief" lay-filter="tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">基础信息</li>
+        <!-- <li>维度设置</li> -->
+        <!-- <li>权限分配</li> -->
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show 2layui-form-pane">
+            <form id="form1" class="layui-form" action="">
+                <button class="layui-btn layui-btn-sm save" lay-submit lay-filter="save">保存</button>
+                <input id="id" type="text" name="id" hidden>
+                <div class="layui-form-item form-group">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">姓名:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">性别:</label>
+                        <div class="layui-input-block">
+                            <select name="sex" lay-verify="required">
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item form-group">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">组织名称:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orgName" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">账号类型:</label>
+                        <div class="layui-input-block">
+                            <select name="orgCode" lay-verify="required">
+                                <option value="1">省级</option>
+                                <option value="2">市级</option>
+                                <option value="3">县级</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item form-group">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">账号:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="username" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">密码:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="password" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item form-group">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">电话:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="phone" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">邮箱:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="email" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item form-group">
+                    <div class="layui-col-md4">
+                        <label class="layui-form-label">辖区省:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="province" required lay-verify="required" autocomplete="off"
+                                   placeholder="" class="layui-input" value="广东省" readonly>
+                        </div>
+                    </div>
+                    <div class="layui-col-md4">
+                        <label class="layui-form-label">辖区市:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="city" required lay-verify="" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-md4">
+                        <label class="layui-form-label">辖区县:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="county" required lay-verify="" autocomplete="off"
+                                   placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script data-main="js/Edit.js" src="/hzml/common/js/lib/require.js"></script>
+</body>
+
+</html>

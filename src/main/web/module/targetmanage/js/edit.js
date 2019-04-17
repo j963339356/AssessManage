@@ -34,7 +34,7 @@ define(['/hzml/common/js/config.js'], function () {
             if($(item).attr('name') == 'sysCreateName'){
                 $(item).val(user.name);
             }
-            if($(item).attr('name') == 'ogrName'){
+            if($(item).attr('name') == 'orgName'){
                 $(item).val(user.orgName);
             }
             if($(item).attr('name') == 'sysCreateTime'){

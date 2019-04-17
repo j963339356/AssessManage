@@ -17,9 +17,8 @@ define(['/hzml/common/js/config.js'], function () {
                 else{
                     layer.msg("保存失败", {time: 1000 });
                 } 
-            })    
-            parent.window.$("#query").click();
-            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            })
+            return false;
         });
     })
 })

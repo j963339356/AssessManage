@@ -77,6 +77,8 @@ define(['/hzml/common/js/config.js'], function () {
                 }     
             });
 
+
+
             //初始化表格
             CustomTable.init({
                 elem: "#table1",

@@ -1,5 +1,5 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
+    require(['jquery', 'customtable', 'popups', 'common','nav'], function ($, CustomTable) {
         var form = layui.form;
         var layer = layui.layer;
         var user = Helper.GetUser();
@@ -84,10 +84,10 @@ define(['/hzml/common/js/config.js'], function () {
                 cols: [[ //表头
                     { checkbox: true },
                     { field: 'id', title: 'id', hide: true, align: 'center' },
-                    { field: 'username', title: '账号', align: 'center' },
+                    { field: 'username', title: '账号', align: 'center', sort: true },
                     { field: 'name', title: '姓名', align: 'center' },
                     { field: 'province', title: '辖区省', align: 'center' },
-                    { field: 'city', title: '辖区市', align: 'center' },
+                    { field: 'city', title: '辖区市', align: 'center', sort: true },
                     { field: 'county', title: '辖区县', align: 'center' },
                     { field: 'orgName', title: '单位名称', align: 'center' },
                 ]]

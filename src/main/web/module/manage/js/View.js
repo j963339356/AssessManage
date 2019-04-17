@@ -35,9 +35,9 @@ define(['/hzml/common/js/config.js'], function () {
 
         //填充表格
         function fill(data) {
-            $("#table1 tr").each(function (i, item) {
+            $("#table1 tr").each(function (j, item) {
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].name == $(item).find("label[name='name']").text() || data[i].p == $(item).find("label[name='p']").val()) {
+                    if (data[i].name == $(item).find("label[name='name']").text() && data[i].p == $(item).find("label[name='p']").attr('value')) {
                         $(item).find("label[name='countyScore']").text(data[i].countyScore);
                     }
                 }

@@ -1,5 +1,5 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
+    require(['jquery', 'customtable', 'popups', 'common','nav'], function ($, CustomTable) {
         var layer = layui.layer;
         //初始化表格
         CustomTable.init({

@@ -805,62 +805,52 @@ public class AssessTargetManageExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeEqualTo(String value) {
+        public Criteria andOrgCodeEqualTo(Integer value) {
             addCriterion("orgCode =", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeNotEqualTo(String value) {
+        public Criteria andOrgCodeNotEqualTo(Integer value) {
             addCriterion("orgCode <>", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeGreaterThan(String value) {
+        public Criteria andOrgCodeGreaterThan(Integer value) {
             addCriterion("orgCode >", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeGreaterThanOrEqualTo(String value) {
+        public Criteria andOrgCodeGreaterThanOrEqualTo(Integer value) {
             addCriterion("orgCode >=", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeLessThan(String value) {
+        public Criteria andOrgCodeLessThan(Integer value) {
             addCriterion("orgCode <", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeLessThanOrEqualTo(String value) {
+        public Criteria andOrgCodeLessThanOrEqualTo(Integer value) {
             addCriterion("orgCode <=", value, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeLike(String value) {
-            addCriterion("orgCode like", value, "orgCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrgCodeNotLike(String value) {
-            addCriterion("orgCode not like", value, "orgCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrgCodeIn(List<String> values) {
+        public Criteria andOrgCodeIn(List<Integer> values) {
             addCriterion("orgCode in", values, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeNotIn(List<String> values) {
+        public Criteria andOrgCodeNotIn(List<Integer> values) {
             addCriterion("orgCode not in", values, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeBetween(String value1, String value2) {
+        public Criteria andOrgCodeBetween(Integer value1, Integer value2) {
             addCriterion("orgCode between", value1, value2, "orgCode");
             return (Criteria) this;
         }
 
-        public Criteria andOrgCodeNotBetween(String value1, String value2) {
+        public Criteria andOrgCodeNotBetween(Integer value1, Integer value2) {
             addCriterion("orgCode not between", value1, value2, "orgCode");
             return (Criteria) this;
         }

@@ -21,6 +21,7 @@ require.config({
         popups: common + "popups",
         helper: common + "helper",
         login: common + "login",
+        nav: common + "nav",
     },
     //指明依赖关系，因为是异步的，如果一个文件的加载有前置条件，这里要加上
     shim: {
@@ -31,5 +32,4 @@ require.config({
         common: ['layui','jquery'],
         // customtable: ["layui","table","laypage"]
     }
-
 });

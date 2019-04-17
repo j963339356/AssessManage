@@ -1,5 +1,8 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'common', 'helper'], function ($) {
+    require(['jquery', 'common', 'helper','nav'], function ($) {
+        /**
+         * 评价等级统计
+         */
         var user =  Helper.GetUser();
         // 基于准备好的dom，初始化echarts实例
         var pieChart = echarts.init(document.getElementById('pie'));

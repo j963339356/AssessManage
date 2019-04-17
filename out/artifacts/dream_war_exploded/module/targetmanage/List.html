@@ -37,14 +37,14 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">
                         <i class="layui-icon">&#xe66f;</i>
-                        活在梦里
+                        <label id="username">活在梦里</label>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">基本资料</a></dd>
-                        <dd><a href="">安全设置</a></dd>
+                        <dd><a href="javascript:;" id="userinfo" style="text-align:center"></a></dd>
+                        <dd><a href="javascript:;" id="orgName" style="text-align:center"></a></dd>
+                        <dd><a id="logout" style="text-align:center" href="/hzml/module/index.html">退出</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">退出</a></li>
             </ul>
         </div>
 
@@ -52,7 +52,7 @@
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item layui-nav-itemed">
+                    <li class="layui-nav-item ">
                         <a class="" href="/hzml/module/targetmanage/List.html">考核指标管理</a>
                     </li>
                     <li class="layui-nav-item">
@@ -72,9 +72,10 @@
                             <dd data-code="1"><a href="/hzml/module/Analysis/Level.html">评价等级统计</a></dd>
                             <dd data-code="1"><a href="/hzml/module/Analysis/Score.html">评价分值统计</a></dd>
                             <dd data-code="12"><a href="/hzml/module/Analysis/Whole.html">总体情况</a></dd>
+                            <dd data-code="12"><a href="/hzml/module/Analysis/Gltcqk.html">行政村公路通畅情况</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="layui-nav-item" data-code="12">
                         <a href="javascript:;">工作事项</a>
                         <dl class="layui-nav-child">
                             <dd><a href="/hzml/module/work/waittask.html">待处理件</a></dd>

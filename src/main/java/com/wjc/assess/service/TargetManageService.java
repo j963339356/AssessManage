@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 指标管理
@@ -58,7 +56,6 @@ public class TargetManageService {
         AssessScoreExample.Criteria criteria = example.createCriteria();
         //每一个Criteria里的方法相当于“与”
         criteria.andSysStatusEqualTo(1);
-        example.setOrderByClause("sysUpdateTime desc,sysCreateTime desc");  //先按更新时间降序，在按创建时间降序
 
         if(targetManage.getName()!= null && !targetManage.getName().equals("")){
             criteria.andNameLike("%"+targetManage.getName()+"%");   //指标名称
@@ -68,9 +65,8 @@ public class TargetManageService {
         }
 
         int total = scoreDao.countByExample(example);
-        //分页
-        PageHelper.startPage(page,size);
-        List<AssessScore> list = scoreDao.selectByExample(example);
+
+        List<AssessScore> list = scoreDao.selectByExample((page-1)*size,size,example);
         //返回的数据
         ReturnList result = new ReturnList(total,list);
         return result;
@@ -96,7 +92,7 @@ public class TargetManageService {
         }
         targetManage.setId(UUID.randomUUID().toString());
         targetManage.setIsStart(true);    //启用指标
-        targetManage.setOrgCode(user.getOrgCode().toString());
+        targetManage.setOrgCode(user.getOrgCode());
         targetManage.setSysCreateCode(user.getOrgCode().toString());
         targetManage.setSysCreateName(user.getName());
         targetManage.setSysCreateTime(new Date());

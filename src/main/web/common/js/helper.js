@@ -39,14 +39,15 @@ define(['jquery','layui','cookie','popups','login'], function ($) {
             url: "/hzml/api/" + url,       //请求url
             type: "post",  //post请求
             // data: {},      //要传输的数据
-            cache: false,  //不缓存页面
+            cache: true,  //false不缓存页面
             crossDomain: true,
             dataType: "json",   //json数据
             contentType: "application/json",
             headers:{
                 "token": Helper.GetToken(),
                 "Access-Control-Allow-Origin": "*",     //跨域
-                "Access-Control-Allow-Headers": "X-Requested-With"
+                "Access-Control-Allow-Headers": "X-Requested-With",
+                "Cache-Control": "private"  //开启post缓存
             },
             error:function(request,error,exception){    //请求对象，错误信息，异常对象
                 console.log(error)

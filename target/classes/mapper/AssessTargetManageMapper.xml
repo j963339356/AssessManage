@@ -12,8 +12,8 @@
     <result column="valueType" property="valueType" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="dimension" property="dimension" jdbcType="VARCHAR" />
-    <result column="orgCode" property="orgCode" jdbcType="CHAR" />
-    <result column="ogrName" property="ogrName" jdbcType="CHAR" />
+    <result column="orgCode" property="orgCode" jdbcType="INTEGER" />
+    <result column="ogrName" property="ogrName" jdbcType="VARCHAR" />
     <result column="isStart" property="isStart" jdbcType="BIT" />
     <result column="sysCreateName" property="sysCreateName" jdbcType="VARCHAR" />
     <result column="sysCreateCode" property="sysCreateCode" jdbcType="VARCHAR" />
@@ -127,7 +127,7 @@
     values (#{id,jdbcType=VARCHAR}, #{assessId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{meansure,jdbcType=VARCHAR}, #{p,jdbcType=VARCHAR}, #{targetExplain,jdbcType=VARCHAR}, 
       #{level,jdbcType=INTEGER}, #{valueType,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{dimension,jdbcType=VARCHAR}, #{orgCode,jdbcType=CHAR}, #{ogrName,jdbcType=CHAR}, 
+      #{dimension,jdbcType=VARCHAR}, #{orgCode,jdbcType=INTEGER}, #{ogrName,jdbcType=VARCHAR}, 
       #{isStart,jdbcType=BIT}, #{sysCreateName,jdbcType=VARCHAR}, #{sysCreateCode,jdbcType=VARCHAR}, 
       #{sysCreateTime,jdbcType=TIMESTAMP}, #{sysUpdateName,jdbcType=VARCHAR}, #{sysUpdateCode,jdbcType=VARCHAR}, 
       #{sysUpdateTime,jdbcType=TIMESTAMP}, #{sysStatus,jdbcType=INTEGER})
@@ -228,10 +228,10 @@
         #{dimension,jdbcType=VARCHAR},
       </if>
       <if test="orgCode != null" >
-        #{orgCode,jdbcType=CHAR},
+        #{orgCode,jdbcType=INTEGER},
       </if>
       <if test="ogrName != null" >
-        #{ogrName,jdbcType=CHAR},
+        #{ogrName,jdbcType=VARCHAR},
       </if>
       <if test="isStart != null" >
         #{isStart,jdbcType=BIT},
@@ -299,10 +299,10 @@
         dimension = #{record.dimension,jdbcType=VARCHAR},
       </if>
       <if test="record.orgCode != null" >
-        orgCode = #{record.orgCode,jdbcType=CHAR},
+        orgCode = #{record.orgCode,jdbcType=INTEGER},
       </if>
       <if test="record.ogrName != null" >
-        ogrName = #{record.ogrName,jdbcType=CHAR},
+        ogrName = #{record.ogrName,jdbcType=VARCHAR},
       </if>
       <if test="record.isStart != null" >
         isStart = #{record.isStart,jdbcType=BIT},
@@ -345,8 +345,8 @@
       valueType = #{record.valueType,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
       dimension = #{record.dimension,jdbcType=VARCHAR},
-      orgCode = #{record.orgCode,jdbcType=CHAR},
-      ogrName = #{record.ogrName,jdbcType=CHAR},
+      orgCode = #{record.orgCode,jdbcType=INTEGER},
+      ogrName = #{record.ogrName,jdbcType=VARCHAR},
       isStart = #{record.isStart,jdbcType=BIT},
       sysCreateName = #{record.sysCreateName,jdbcType=VARCHAR},
       sysCreateCode = #{record.sysCreateCode,jdbcType=VARCHAR},
@@ -390,10 +390,10 @@
         dimension = #{dimension,jdbcType=VARCHAR},
       </if>
       <if test="orgCode != null" >
-        orgCode = #{orgCode,jdbcType=CHAR},
+        orgCode = #{orgCode,jdbcType=INTEGER},
       </if>
       <if test="ogrName != null" >
-        ogrName = #{ogrName,jdbcType=CHAR},
+        ogrName = #{ogrName,jdbcType=VARCHAR},
       </if>
       <if test="isStart != null" >
         isStart = #{isStart,jdbcType=BIT},
@@ -433,8 +433,8 @@
       valueType = #{valueType,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
       dimension = #{dimension,jdbcType=VARCHAR},
-      orgCode = #{orgCode,jdbcType=CHAR},
-      ogrName = #{ogrName,jdbcType=CHAR},
+      orgCode = #{orgCode,jdbcType=INTEGER},
+      ogrName = #{ogrName,jdbcType=VARCHAR},
       isStart = #{isStart,jdbcType=BIT},
       sysCreateName = #{sysCreateName,jdbcType=VARCHAR},
       sysCreateCode = #{sysCreateCode,jdbcType=VARCHAR},

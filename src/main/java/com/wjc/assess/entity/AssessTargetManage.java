@@ -23,7 +23,7 @@ public class AssessTargetManage {
 
     private String dimension;
 
-    private String orgCode;
+    private Integer orgCode;
 
     private String ogrName;
 
@@ -123,12 +123,12 @@ public class AssessTargetManage {
         this.dimension = dimension == null ? null : dimension.trim();
     }
 
-    public String getOrgCode() {
+    public Integer getOrgCode() {
         return orgCode;
     }
 
-    public void setOrgCode(String orgCode) {
-        this.orgCode = orgCode == null ? null : orgCode.trim();
+    public void setOrgCode(Integer orgCode) {
+        this.orgCode = orgCode;
     }
 
     public String getOgrName() {

@@ -1,5 +1,5 @@
 define(['/hzml/common/js/config.js'], function () {
-    require(['jquery', 'customtable', 'popups', 'common'], function ($, CustomTable) {
+    require(['jquery', 'customtable', 'popups', 'common','nav'], function ($, CustomTable) {
         var form = layui.form;
         var layer = layui.layer;
         var user = Helper.GetUser();
@@ -25,7 +25,7 @@ define(['/hzml/common/js/config.js'], function () {
                 return;
             }
             //如果不是退回的，也不是没状态的，说明上报过，不二次允许上报
-            if(CustomTable.getSelect().status!=null && CustomTable.getSelect()!=7){
+            if(CustomTable.getSelect()[0].status!=null && CustomTable.getSelect()[0].status!=7){
                 layer.msg("不能重复上报", { time: 1000 });
                 return;
             }

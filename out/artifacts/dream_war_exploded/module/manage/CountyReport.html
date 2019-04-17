@@ -15,10 +15,11 @@
     <div class="layui-tab layui-tab-brief" lay-filter="tab">
         <ul class="layui-tab-title">
             <li class="layui-this">基础信息</li>
-            <!-- <li>维度设置</li> -->
+            <li>审核情况</li>
             <!-- <li>权限分配</li> -->
         </ul>
         <div class="layui-tab-content">
+            <button id="save" class="layui-btn layui-btn-sm save" lay-submit lay-filter="save">提交</button>
             <div class="layui-tab-item layui-show">
                 <blockquote class="layui-elem-quote">
                     基本信息
@@ -68,7 +69,6 @@
                 <blockquote class="layui-elem-quote" style="margin-top: 20px;">
                     考核指标信息
                 </blockquote>
-                <button id="save" class="layui-btn layui-btn-sm save" lay-submit lay-filter="save">提交</button>                      
                 <form id="form1" class="layui-form" action="">
                     <table id="table1" class="layui-table" lay-even lay-filter="table1">
                         <thead>
@@ -449,7 +449,22 @@
                     </table>
                 </form>
             </div>
-            <div class="layui-tab-item layui-show"></div>
+            <div class="layui-tab-item">
+                <blockquote class="layui-elem-quote">
+                    退回原因
+                </blockquote>
+                <form id="form2" class="layui-form border">
+                    <div class="layui-form-item form-group">
+                        <div class="layui-col-md4">
+                            <label class="layui-form-label">退回原因:</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="backReson" autocomplete="off" placeholder="" class="layui-input"
+                                       value="" >
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <script data-main="js/CountyReport.js" src="/hzml/common/js/lib/require.js"></script>

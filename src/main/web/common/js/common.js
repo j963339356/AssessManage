@@ -44,11 +44,6 @@ define(['jquery', 'helper'], function ($) {
         return values;
     }
 
-    //列表的左侧下拉菜单，只有一个展开，其他自动折叠
-    $(".layui-nav-tree li").click(function () {
-        $(this).siblings().removeClass("layui-nav-itemed")
-    })
-
     //日期格式化
     Date.prototype.Format = function (fmt) { //author: meizz   
         var o = {
@@ -71,10 +66,10 @@ define(['jquery', 'helper'], function ($) {
     //权限校验
     var user = Helper.GetUser();
     if (user) {
-        $("[data-code]").hide();
+        $("[data-code]").show();
         $("[data-code]").each(function (i, item) {
-            if ($(item).attr("data-code").indexOf(user.orgCode) != -1) {
-                $(item).show();
+            if ($(item).attr("data-code").indexOf(user.orgCode) == -1) {
+                $(item).hide();
             }
         })
         //用户信息
@@ -82,9 +77,15 @@ define(['jquery', 'helper'], function ($) {
         $("#userinfo").text(user.username);
         $("#orgName").text(user.orgName);
     }
+
     $("#logout").click(function () {
         Helper.ClearnToken();
         Helper.removeUser();
     })
 
+    var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    //列表的左侧下拉菜单，只有一个展开，其他自动折叠
+    $(".layui-nav-tree li").click(function () {
+        $(this).siblings().removeClass("layui-nav-itemed")
+    })
 })
