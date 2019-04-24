@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="dream:jar" />
-      <artifact name="dream:war" />
       <artifact name="dream:war exploded" />
     </artifacts-to-build>
   </component>
@@ -39,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
+            <state relative-caret-position="3750">
               <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
             </state>
           </provider>
@@ -48,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/service/AnalysisService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="7300">
               <caret line="857" column="70" selection-start-line="857" selection-start-column="70" selection-end-line="857" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,35 +56,16 @@
                 <element signature="docComment;method#wholescore#0;class#AnalysisService#0" />
                 <element signature="method#wholescore#0;class#AnalysisService#0" />
                 <element signature="method#gltcqk#0;class#AnalysisService#0" />
-                <element signature="method#gltcqk#1;class#AnalysisService#0" />
-                <element signature="method#kctcqk#1;class#AnalysisService#0" />
-                <element signature="method#kcgjhqk#1;class#AnalysisService#0" />
-                <element signature="method#kyjqsgqk#1;class#AnalysisService#0" />
-                <element signature="method#kyjcssqk#1;class#AnalysisService#0" />
-                <element signature="method#kyxxfwqk#1;class#AnalysisService#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/web/module/Analysis/Kcgjhqk.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/View.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5433">
-              <caret line="446" column="83" selection-start-line="446" selection-start-column="55" selection-end-line="446" selection-end-column="83" />
+            <state relative-caret-position="311">
+              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -104,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>save</find>
       <find>edit</find>
       <find>view</find>
       <find>updateby</find>
@@ -134,6 +112,7 @@
       <find>行政村总数</find>
       <find>&lt;dd data-code=&quot;12&quot;&gt;&lt;a href=&quot;/hzml/module/Analysis/Whole.html&quot;&gt;总体情况&lt;/a&gt;&lt;/dd&gt;</find>
       <find>&lt;ul class=&quot;layui-nav layui-nav-tree&quot; lay-filter=&quot;test&quot;&gt;</find>
+      <find>登陆</find>
     </findStrings>
     <replaceStrings>
       <replace>:</replace>
@@ -157,9 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/web/module/infopublicity/js/ProvinceList.js" />
-        <option value="$PROJECT_DIR$/src/main/web/module/manage/View.html" />
-        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/View.js" />
         <option value="$PROJECT_DIR$/src/main/web/module/manage/js/CountyReport.js" />
         <option value="$PROJECT_DIR$/src/main/web/module/manage/js/List.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/service/ManageService.java" />
@@ -208,6 +184,9 @@
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/Score.html" />
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/Level.html" />
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/Whole.html" />
+        <option value="$PROJECT_DIR$/src/main/web/module/Login.html" />
+        <option value="$PROJECT_DIR$/src/main/web/module/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/Interceptor/LoginInterceptor.java" />
       </list>
     </option>
   </component>
@@ -263,6 +242,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -301,46 +281,7 @@
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
@@ -353,34 +294,27 @@
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="Analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="Analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,7 +325,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555524041738" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555524418259" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/dream_war" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -679,7 +613,11 @@
       <workItem from="1555257278023" duration="1878000" />
       <workItem from="1555315947495" duration="14645000" />
       <workItem from="1555387520540" duration="15549000" />
-      <workItem from="1555472334137" duration="27788000" />
+      <workItem from="1555472334137" duration="27998000" />
+      <workItem from="1555594512935" duration="148000" />
+      <workItem from="1555643138854" duration="1371000" />
+      <workItem from="1555723709163" duration="1640000" />
+      <workItem from="1555730934370" duration="1874000" />
     </task>
     <servers />
   </component>
@@ -689,7 +627,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469099000" />
+    <option name="totallyTimeSpent" value="474342000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -701,10 +639,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498" visible="true" weight="0.2707775" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498" visible="true" weight="0.28619304" />
       <window_info id="Structure" order="1" sideWeight="0.5012285" side_tool="true" weight="0.34986594" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -728,7 +665,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.3286119" />
-      <window_info anchor="bottom" id="Statistic" order="16" weight="0.21923621" />
+      <window_info anchor="bottom" id="Statistic" order="16" weight="0.5226629" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -805,20 +742,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/View.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/js/ProvinceList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/web/module/user/js/Edit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1046,13 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="72" column="10" selection-start-line="63" selection-start-column="5" selection-end-line="72" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/web/module/Analysis/js/Whole.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1212,23 +1128,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/View.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
+        <state relative-caret-position="606">
+          <caret line="446" column="83" selection-start-line="446" selection-start-column="55" selection-end-line="446" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/View.html">
+    <entry file="file://$PROJECT_DIR$/src/main/web/common/js/helper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5433">
-          <caret line="446" column="83" selection-start-line="446" selection-start-column="55" selection-end-line="446" selection-end-column="83" />
+        <state relative-caret-position="300">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/Interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="30" column="82" selection-start-line="30" selection-start-column="82" selection-end-line="30" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/Analysis/Kcgjhqk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3750">
+          <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/service/AnalysisService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="7300">
           <caret line="857" column="70" selection-start-line="857" selection-start-column="70" selection-end-line="857" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1238,24 +1179,14 @@
             <element signature="docComment;method#wholescore#0;class#AnalysisService#0" />
             <element signature="method#wholescore#0;class#AnalysisService#0" />
             <element signature="method#gltcqk#0;class#AnalysisService#0" />
-            <element signature="method#gltcqk#1;class#AnalysisService#0" />
-            <element signature="method#kctcqk#1;class#AnalysisService#0" />
-            <element signature="method#kcgjhqk#1;class#AnalysisService#0" />
-            <element signature="method#kyjqsgqk#1;class#AnalysisService#0" />
-            <element signature="method#kyjcssqk#1;class#AnalysisService#0" />
-            <element signature="method#kyxxfwqk#1;class#AnalysisService#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/Analysis/Kcgjhqk.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="311">
+          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>

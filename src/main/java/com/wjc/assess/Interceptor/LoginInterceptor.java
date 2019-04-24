@@ -28,6 +28,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         //设置响应的字符编码格式
         httpServletResponse.setContentType("text/html;charset=utf-8");
+        httpServletResponse.setHeader("Access-Control-Allow-Origin","*");   //支持跨域
 
         //如果是登录或注册，就放行
         if(httpServletRequest.getRequestURI().contains("/api/Login")
