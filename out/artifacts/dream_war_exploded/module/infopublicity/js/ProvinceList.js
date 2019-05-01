@@ -41,7 +41,7 @@ define(['/hzml/common/js/config.js'], function () {
                 // toolbar: '#tool',
                 // even: true, //开启隔行背景
                 cols: [[ //表头
-                    { checkbox: true },
+                    // { checkbox: true },
                     { field: 'id', title: 'id', hide: true, align: 'center' },
                     { field: 'year', title: '考核年度', align: 'center' },
                     { field: 'city', title: '辖区市', align: 'center' },

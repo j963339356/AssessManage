@@ -75,6 +75,10 @@ define(['/hzml/common/js/config.js'], function () {
                 var level1 = level3 / level2
                 var count = $(cur[0]).find("label[name='countyScore']").attr('data-value');
                 $(cur[0]).find("label[name='countyScore']").text(parseInt(level1 * count));
+                //验证除0错误
+                if($(cur[0]).find("input[name='countyScore']").val()=='NaN'){
+                    $(cur[0]).find("label[name='cityScore']").text(0);
+                }
             }
             //计算p5总成绩
             //县

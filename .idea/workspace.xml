@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="dream:jar" />
+      <artifact name="dream:war" />
       <artifact name="dream:war exploded" />
     </artifacts-to-build>
   </component>
@@ -35,37 +37,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/Add.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3750">
-              <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
+            <state relative-caret-position="1450">
+              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/service/AnalysisService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/CountyReport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7300">
-              <caret line="857" column="70" selection-start-line="857" selection-start-column="70" selection-end-line="857" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#level#0;class#AnalysisService#0" />
-                <element signature="method#score#0;class#AnalysisService#0" />
-                <element signature="method#whole#0;class#AnalysisService#0" />
-                <element signature="docComment;method#wholescore#0;class#AnalysisService#0" />
-                <element signature="method#wholescore#0;class#AnalysisService#0" />
-                <element signature="method#gltcqk#0;class#AnalysisService#0" />
-              </folding>
+            <state relative-caret-position="4200">
+              <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/CityAssess.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/js/ProvinceList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="275">
+              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/ProvinceAssess.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4725">
+              <caret line="189" column="23" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/js/View.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1650">
+              <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="69" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/View.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2000">
+              <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -136,11 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/CountyReport.js" />
-        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/List.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/service/ManageService.java" />
-        <option value="$PROJECT_DIR$/src/main/web/module/user/js/Add.js" />
-        <option value="$PROJECT_DIR$/src/main/web/module/user/js/Edit.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/service/impl/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/web/module/targetmanage/js/edit.js" />
         <option value="$PROJECT_DIR$/src/main/web/module/targetmanage/js/add.js" />
@@ -149,8 +173,6 @@
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/js/Score.js" />
         <option value="$PROJECT_DIR$/src/main/web/module/user/js/List.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/web/module/work/js/CityAssess.js" />
-        <option value="$PROJECT_DIR$/src/main/web/module/work/js/ProvinceAssess.js" />
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/js/RoadClearstatus.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/dto/SituationDto.java" />
         <option value="$PROJECT_DIR$/src/main/web/module/Analysis/js/Whole.js" />
@@ -187,6 +209,13 @@
         <option value="$PROJECT_DIR$/src/main/web/module/Login.html" />
         <option value="$PROJECT_DIR$/src/main/web/module/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/wjc/assess/Interceptor/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/Add.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/CountyReport.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/work/js/CityAssess.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/work/js/ProvinceAssess.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/infopublicity/js/View.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/manage/js/View.js" />
+        <option value="$PROJECT_DIR$/src/main/web/module/infopublicity/js/ProvinceList.js" />
       </list>
     </option>
   </component>
@@ -231,18 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="springBootDemo" type="58d84e3e:PackageViewProjectNode" />
-              <item name="springBootDemo" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,22 +283,7 @@
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="assess" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
@@ -289,32 +291,81 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="infopublicity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="infopublicity" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
               <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AssessManage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AssessManage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springBootDemo" type="58d84e3e:PackageViewProjectNode" />
+              <item name="springBootDemo" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -618,6 +669,9 @@
       <workItem from="1555643138854" duration="1371000" />
       <workItem from="1555723709163" duration="1640000" />
       <workItem from="1555730934370" duration="1874000" />
+      <workItem from="1556344320437" duration="2444000" />
+      <workItem from="1556425047550" duration="599000" />
+      <workItem from="1556550706291" duration="653000" />
     </task>
     <servers />
   </component>
@@ -627,7 +681,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474342000" />
+    <option name="totallyTimeSpent" value="478038000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -640,8 +694,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498" visible="true" weight="0.28619304" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498" visible="true" weight="0.29825738" />
       <window_info id="Structure" order="1" sideWeight="0.5012285" side_tool="true" weight="0.34986594" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -742,51 +797,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/user/js/Edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/user/js/Add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/service/impl/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/entity/AssessManage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2000">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/targetmanage/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/View.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/CityList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/ProvinceList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -827,27 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="105" column="51" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/waittask.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/CityAssess.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/ProvinceAssess.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1160,16 +1149,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3750">
-          <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
+        <state relative-caret-position="311">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/service/AnalysisService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7300">
+        <state relative-caret-position="606">
           <caret line="857" column="70" selection-start-line="857" selection-start-column="70" selection-end-line="857" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1183,10 +1172,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wjc/assess/controller/AnalysisController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="606">
+          <caret line="167" column="60" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/waittask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1458">
+          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/CityReport.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/Add.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1450">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/CountyReport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/ProvinceAssess.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4725">
+          <caret line="189" column="23" selection-start-line="189" selection-start-column="20" selection-end-line="189" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/js/View.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="69" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/manage/js/View.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2000">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/work/js/CityAssess.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/web/module/infopublicity/js/ProvinceList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
         </state>
       </provider>
     </entry>

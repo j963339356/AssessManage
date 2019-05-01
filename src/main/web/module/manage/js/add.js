@@ -34,10 +34,10 @@ define(['/hzml/common/js/config.js'], function () {
                 }
                 $(cur[1]).find("input[name='countyScore']").val(parseInt(level1));
                 //总分值大了，肯听填错数字了
-                if($(cur[0]).find("input[name='countyScore']").val() > parseInt($(cur[0]).find("input[name='countyScore']").attr('data-value'))){
+                if(parseInt($(cur[3]).find("input[name='countyScore']").val()) > parseInt($(cur[2]).find("input[name='countyScore']").val())
+                    || $(cur).find("input[name='countyScore']").val()<0 || $(cur[0]).find("input[name='countyScore']").val()=='NaN'){
                     layer.msg("数据填写错误",{time:1000})
                     cur.find("input[name='countyScore']").val(0); //置零
-                    return ;
                 }
             }
             if(p.indexOf("p5")==0){
@@ -52,10 +52,10 @@ define(['/hzml/common/js/config.js'], function () {
                 var count = $(cur[0]).find("input[name='countyScore']").attr('data-value');
                 $(cur[0]).find("input[name='countyScore']").val(parseInt(level1 * count));
                 //总分值大了，肯听填错数字了
-                if($(cur[0]).find("input[name='countyScore']").val() > parseInt($(cur[0]).find("input[name='countyScore']").attr('data-value'))){
+                if(parseInt($(cur[2]).find("input[name='countyScore']").val()) > parseInt($(cur[1]).find("input[name='countyScore']").val())
+                    || $(cur).find("input[name='countyScore']").val()<0 || $(cur[0]).find("input[name='countyScore']").val()=='NaN'){
                     layer.msg("数据填写错误",{time:1000})
                     cur.find("input[name='countyScore']").val(0); //置零
-                    return ;
                 }
                 //计算p5总成绩
                 var c1 = $(cur.siblings(".p5.1")[0]).find("input[name='countyScore']").val();
