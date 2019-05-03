@@ -49,6 +49,16 @@ public class AssessScore {
 
     private Integer sysStatus;
 
+    public AssessScore(){}
+
+    public AssessScore(String name, String meansure, Integer countyScore, Integer cityScore, Integer provinceScore) {
+        this.name = name;
+        this.meansure = meansure;
+        this.countyScore = countyScore;
+        this.cityScore = cityScore;
+        this.provinceScore = provinceScore;
+    }
+
     public String getId() {
         return id;
     }

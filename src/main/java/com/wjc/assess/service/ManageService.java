@@ -462,4 +462,6 @@ public class ManageService {
         assessScore.setSysUpdateTime(new Date());
         scoreDao.updateByExampleSelective(assessScore,example);
     }
+
+
 }
