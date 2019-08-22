@@ -49,9 +49,12 @@ public class AnalysisController extends BaseController{
         User user = getUser(httpServletRequest);
 
         AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
-        List<AnalyScoreDto> result = analysisService.score(manage,user);
-        ReturnList returnlist = new ReturnList(result.size(),result);
-        return MessageHelp.Result(returnlist);
+        int page = request.getPage();
+        int rows = request.getRows();
+
+        ReturnList result = analysisService.score(manage,page,rows,user);
+//        ReturnList returnlist = new ReturnList(result.size(),result);
+        return MessageHelp.Result(result);
     }
 
     @PostMapping("/whole")
@@ -74,9 +77,11 @@ public class AnalysisController extends BaseController{
         User user = getUser(httpServletRequest);
 
         AssessManage manage = JSON.parseObject(request.getBody().toString(),AssessManage.class);
-        List<AnalyScoreDto> result = analysisService.wholescore(manage,user);
-        ReturnList returnlist = new ReturnList(result.size(),result);
-        return MessageHelp.Result(returnlist);
+        int page = request.getPage();
+        int rows = request.getRows();
+
+        ReturnList result = analysisService.wholescore(manage,page,rows,user);
+        return MessageHelp.Result(result);
     }
 
     @PostMapping("/gltcqk")

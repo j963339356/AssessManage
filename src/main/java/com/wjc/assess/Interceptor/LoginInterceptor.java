@@ -33,17 +33,18 @@ public class LoginInterceptor implements HandlerInterceptor {
         //如果是登录或注册，就放行
         if(httpServletRequest.getRequestURI().contains("/api/Login")
                 || httpServletRequest.getRequestURI().contains("/api/File")
+                || httpServletRequest.getRequestURI().contains("/api/Export")
                 || httpServletRequest.getRequestURI().contains("/api/ReportManage/deleteFile")){
             return true;
         }
         //否则验证token
-        String token = tokenUtil.checkToken(httpServletRequest);
+//        String token = tokenUtil.checkToken(httpServletRequest);
 
         //如果存在token
-        if(!redis.hasKey(token)){
-            throw new CustomException(ExceptionEnum.LOGIN);
-        }
-        httpServletRequest.setAttribute("user",redis.get(token));
+//        if(!redis.hasKey(token)){
+//            throw new CustomException(ExceptionEnum.LOGIN);
+//        }
+//        httpServletRequest.setAttribute("user",redis.get(token));
         return true;
     }
 

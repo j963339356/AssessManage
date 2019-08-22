@@ -51,9 +51,10 @@ public class AssessScore {
 
     public AssessScore(){}
 
-    public AssessScore(String name, String meansure, Integer countyScore, Integer cityScore, Integer provinceScore) {
+    public AssessScore(String name, String meansure, String p, Integer countyScore, Integer cityScore, Integer provinceScore) {
         this.name = name;
         this.meansure = meansure;
+        this.p = p;
         this.countyScore = countyScore;
         this.cityScore = cityScore;
         this.provinceScore = provinceScore;

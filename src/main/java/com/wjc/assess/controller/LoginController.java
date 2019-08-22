@@ -82,8 +82,8 @@ public class LoginController extends BaseController {
         BufferedImage image = (BufferedImage) objs[1];
         response.setContentType("image/png");
         OutputStream os = response.getOutputStream();
-        ImageIO.write(image, "png", os);  //tomcat没有temp临时文件所以会报错
-//        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os); encoder.encode(image);
+//        ImageIO.write(image, "png", os);  //tomcat没有temp临时文件所以会报错
+        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os); encoder.encode(image);    //所以本地测试用这个
     }
 
     @PostMapping(value = "/getList")

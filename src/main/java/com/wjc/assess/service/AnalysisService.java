@@ -7,6 +7,7 @@ import com.wjc.assess.dto.AnalysisDto;
 import com.wjc.assess.dto.AnalysisWholeDto;
 import com.wjc.assess.dto.SituationDto;
 import com.wjc.assess.entity.*;
+import com.wjc.assess.utils.controller.dto.ReturnList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,7 +76,7 @@ public class AnalysisService {
     }
 
     //评价分值统计
-    public List<AnalyScoreDto> score(AssessManage manage, User user){
+    public ReturnList score(AssessManage manage, int page, int rows, User user){
         AssessScoreExample example = new AssessScoreExample();
         AssessScoreExample.Criteria criteria = example.createCriteria();
         criteria.andSysStatusEqualTo(1);
@@ -163,7 +164,10 @@ public class AnalysisService {
                     p531 = county.get(i).getProvinceScore();
                 }
             }
-            avg = p511*50/p51 + p521*50/p52 + p531*50/p53;
+            p511 = p51==0 ? 0 : p511*50/p51;    //该死的除0错误
+            p521 = p52==0 ? 0 : p521*50/p52;
+            p531 = p53==0 ? 0 : p531*50/p53;
+            avg = p511 + p521 + p531;
             analyScoreDto.setP5(avg);
             //算出p6
             sum = 0;
@@ -262,7 +266,18 @@ public class AnalysisService {
             resdto.setP9(p9/count);
             result.add(resdto);
         }
-        return result;
+        //测试分页
+//        for(int i=0; i<20; i++){
+//            result.add(result.get(0));
+//        }
+        //分页
+        int fromIndex = rows * (page-1);
+        int toIndex = fromIndex + rows;
+        toIndex = toIndex > result.size() ? result.size() : toIndex;
+
+        List<AnalyScoreDto> sublist = result.subList(fromIndex,toIndex);
+        ReturnList returnList = new ReturnList(result.size(),sublist);
+        return returnList;
     }
 
     //总体情况评价等级统计
@@ -352,7 +367,7 @@ public class AnalysisService {
     /**
      * 总评评价分值统计
      */
-    public List<AnalyScoreDto> wholescore(AssessManage manage, User user) {
+    public ReturnList wholescore(AssessManage manage,int page,int rows, User user) {
         AssessScoreExample example = new AssessScoreExample();
         AssessScoreExample.Criteria criteria = example.createCriteria();
         criteria.andSysStatusEqualTo(1);
@@ -444,7 +459,10 @@ public class AnalysisService {
                     p531 = county.get(i).getProvinceScore();
                 }
             }
-            avg = p511 * 50 / p51 + p521 * 50 / p52 + p531 * 50 / p53;
+            p511 = p51==0 ? 0 : p511*50/p51;    //该死的除0错误
+            p521 = p52==0 ? 0 : p521*50/p52;
+            p531 = p53==0 ? 0 : p531*50/p53;
+            avg = p511 + p521 + p531;
             analyScoreDto.setP5(avg);
             //算出p6
             sum = 0;
@@ -523,7 +541,15 @@ public class AnalysisService {
             }
             countyResult.add(analyScoreDto);
         }
-        return countyResult;
+
+        //分页
+        int fromIndex = rows * (page-1);
+        int toIndex = fromIndex + rows;
+        toIndex = toIndex > countyResult.size() ? countyResult.size() : toIndex;
+
+        List<AnalyScoreDto> sublist = countyResult.subList(fromIndex,toIndex);
+        ReturnList returnList = new ReturnList(countyResult.size(),sublist);
+        return returnList;
     }
 
     //行政村公路通畅情况
@@ -943,7 +969,10 @@ public class AnalysisService {
                     }
                 }
             }
-            int sum = p2*50/p1 + p4*50/p3 + p6*50/p5;
+            p2 = p1==0 ? 0 : p2*50/p1;    //该死的除0错误
+            p4 = p3==0 ? 0 : p4*50/p3;
+            p6 = p5==0 ? 0 : p6*50/p5;
+            int sum = p2 + p4 + p6;
             situationDto.setRate(sum*100/150);
             situationDto.setpScore(sum);
         }

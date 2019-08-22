@@ -11,8 +11,8 @@ mybatis:
 spring:
   datasource:
     name: test
-#    url: jdbc:mysql://localhost:3306/bysj?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-    url: jdbc:mysql://47.100.199.221:3306/bysj?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/bysj?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+#    url: jdbc:mysql://47.100.199.221:3306/bysj?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 1
     type: com.alibaba.druid.pool.DruidDataSource
@@ -63,7 +63,7 @@ spring:
 #Matser的ip地址
   redis:
     #服务器地址
-    host: 47.100.199.221
+    host: 192.168.80.3
     #端口号
     port: 6379
     #Redis服务器连接密码（默认为空）
